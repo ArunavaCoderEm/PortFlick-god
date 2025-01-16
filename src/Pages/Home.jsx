@@ -6,8 +6,6 @@ import { StarIcon } from '@heroicons/react/24/solid'
 import { FiArrowRight } from "react-icons/fi";
 import { Stars } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import Navbar from './Components/Navbar';
-
 
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
 
@@ -32,7 +30,7 @@ const Home = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <NavBar/>
+    <NavBar/>
     <motion.section 
       style={{
         backgroundImage
@@ -59,7 +57,7 @@ const Home = () => {
         >
           connect with stargazers
         </motion.h1>
-        <p className="my-6 max-w-xl text-center text-base leading-relaxed md:text-lg md:leading-relaxed">
+        <p className="my-6 max-w-xl text-center text-sm leading-relaxed md:text-xl md:leading-relaxed">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, et,
           distinctio eum impedit nihil ipsum modi.
         </p>
@@ -98,8 +96,6 @@ const Home = () => {
 
     
   );
-  
-
 };
 
 export default Home;
