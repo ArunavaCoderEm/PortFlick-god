@@ -1,5 +1,6 @@
 import React from "react";
 import NavBar from './Components/Navbar'; 
+import Footer from './Components/Footer'; 
 // import CardSpotlightDemo from './Components/CardSpotLight';
 
 const AboutUs = () => {
@@ -49,6 +50,7 @@ const AboutUs = () => {
 
 
      </section>
+     <Footer/>
     </div>
    
   );

@@ -3,24 +3,34 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="bg-gray-950 text-white px-4 py-3 sticky top-0 z-50">
+    <nav className="bg-gray-950 text-white px-4 py-4 sticky top-0 z-50">
       <div className="container mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="text-2xl font-bold">StarSite</div>
 
 
         <div className="hidden md:flex flex-1 justify-center space-x-8">
-          <Link to="/" className="hover:text-gray-300">
+          <Link to="/" className="hover:text-purple-400">
             Home
           </Link>
-          <Link to="/about" className="hover:text-gray-300">
+          <Link to="/about" className="hover:text-purple-400">
             About
           </Link>
-          <Link to="/" className="hover:text-gray-300">
+          <Link to="/" className="hover:text-purple-400">
             Services
           </Link>
-          <Link to="/" className="hover:text-gray-300">
+          <Link to="/" className="hover:text-purple-400">
             Contact
+          </Link>
+        </div>
+
+        {/* Sign In Button for Desktop */}
+        <div className="hidden md:block">
+          <Link
+            to="/"
+            className="bg-gray-950 hover:bg-gray-950 text-white px-8 py-2 rounded-lg border border-purple-400 shadow-[0px_0px_14px_rgba(207,147,217,0.5)] hover:shadow-[0px_0px_24px_rgba(207,147,217,0.9)] hover:border-purple-300"
+          >
+            Sign In
           </Link>
         </div>
 
@@ -38,23 +48,31 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+        {/* Mobile Menu */}
       <div
         id="mobileMenu"
-        className="hidden md:hidden flex flex-col space-y-4 mt-3 px-4"
+        className="hidden md:hidden flex flex-col items-center space-y-4 mt-3 px-4"
       >
-        <a href="#home" className="hover:text-gray-300">
+        <Link to="/" className="hover:text-gray-300">
           Home
-        </a>
-        <a href="#about" className="hover:text-gray-300">
+        </Link>
+        <Link to="/about" className="hover:text-gray-300">
           About
-        </a>
-        <a href="#services" className="hover:text-gray-300">
+        </Link>
+        <Link to="/" className="hover:text-gray-300">
           Services
-        </a>
-        <a href="#contact" className="hover:text-gray-300">
+        </Link>
+        <Link to="/" className="hover:text-gray-300">
           Contact
-        </a>
+        </Link>
+
+        {/* Sign In Button for Mobile */}
+        <Link
+          to="/signin"
+          className="bg-gray-950 hover:bg-gray-950 text-white px-8 py-2 rounded-lg border border-purple-400 shadow-[0px_0px_14px_rgba(207,147,217,0.5)] hover:shadow-[0px_0px_24px_rgba(207,147,217,0.9)] hover:border-purple-300"
+        >
+          Sign In
+        </Link>
       </div>
     </nav>
   );
