@@ -17,26 +17,24 @@ const Sofa = ({ position }) => {
     const backrestHeight = 3.5;
     const backrestDepth = 0.1;
 
-    // Create the base seat geometry (main body of the sofa)
     const seatGeometry = new THREE.BoxGeometry(seatWidth, seatHeight, seatDepth);
 
-    // Armrest geometries
     const leftArmrestGeometry = new THREE.BoxGeometry(armrestWidth, armrestHeight, armrestDepth);
     const rightArmrestGeometry = new THREE.BoxGeometry(armrestWidth, armrestHeight, armrestDepth);
 
-    // Create the group for all parts of the sofa
+    // group for all parts of the sofa
     geometryRef.current = new THREE.Group();
 
-    // Create and position the seat
+  
     const seat = new THREE.Mesh(seatGeometry, new THREE.MeshPhongMaterial({ color: "#afe7e8" }));
     geometryRef.current.add(seat);
 
-    // Create and position the left armrest on the shorter side (depth)
+    
     const leftArmrest = new THREE.Mesh(leftArmrestGeometry, new THREE.MeshPhongMaterial({ color: "#b2dfdc" }));
     leftArmrest.position.set(-(seatWidth  / 20), seatHeight /1.5, seatDepth /2);
     geometryRef.current.add(leftArmrest);
 
-    // Create and position the right armrest on the shorter side (depth)
+    
     const rightArmrest = new THREE.Mesh(rightArmrestGeometry, new THREE.MeshPhongMaterial({ color: "#b2dfdc" }));
     rightArmrest.position.set(-(seatWidth  / 20), seatHeight /1.5, -seatDepth /2);
     geometryRef.current.add(rightArmrest);

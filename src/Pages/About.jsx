@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from './Components/Navbar'; 
 import Footer from './Components/Footer'; 
+import UsersList from './Utils/UserList';
 // import CardSpotlightDemo from './Components/CardSpotLight';
 
 const AboutUs = () => {
@@ -49,7 +50,12 @@ const AboutUs = () => {
         {/* <CardSpotlightDemo/> */}
 
 
+      <div>
+        <p className='text-red-400'> <UsersList /></p> 
+      </div>
+
      </section>
+     
      <Footer/>
     </div>
    

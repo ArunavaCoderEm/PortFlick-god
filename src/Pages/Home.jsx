@@ -57,8 +57,8 @@ const Home = () => {
           My3DShowcase
         </span>
 
-        <h1 className="max-w-3xl bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center text-3xl font-medium leading-tight text-transparent sm:text-5xl sm:leading-tight md:text-6xl md:leading-tight">
-          Explore the cosmos and
+        <h1 className="max-w-3xl bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center text-3xl font-medium leading-tight text-transparent sm:text-5xl sm:leading-tight md:text-6xl md:leading-tight">       
+          Design, Display, Dominate
         </h1>
 
         <motion.h1
@@ -67,7 +67,7 @@ const Home = () => {
           }}
           className="max-w-3xl bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center text-3xl font-medium leading-tight text-transparent sm:text-5xl sm:leading-tight md:text-6xl md:leading-tight"
         >
-          connect with stargazers
+          Your 3D Portfolio Awaits
         </motion.h1>
         <p className="my-6 max-w-xl text-center text-sm leading-relaxed md:text-xl md:leading-relaxed">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, et,
