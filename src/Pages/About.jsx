@@ -13,7 +13,7 @@ const AboutUs = () => {
           
        <div className="text-center mb-10">
          <h1 className="text-4xl font-bold bg-gradient-to-br from-white to-gray-100 bg-clip-text text-transparent mb-10">
-            Welcome to StarGazer
+            Welcome to My3DShowcase
         </h1>
          <p className="text-lg text-gray-100 px-20">
          ReviewR is your one-stop platform for generating authentic, real reviews for your website with just a few clicks. Enhance your credibility and improve user trust in no time.

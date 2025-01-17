@@ -6,15 +6,15 @@ const Sofa = ({ position }) => {
 
   if (!geometryRef.current) {
     // Dimensions for sofa components
-    const seatWidth = 2;
-    const seatHeight = 1;
-    const seatDepth = 4;
+    const seatWidth = 3;
+    const seatHeight = 2;
+    const seatDepth = 6;
 
-    const armrestWidth = 2;
-    const armrestHeight = 0.6;
+    const armrestWidth = 3;
+    const armrestHeight = 0.8;
     const armrestDepth = 0.5;
 
-    const backrestHeight = 2;
+    const backrestHeight = 3.5;
     const backrestDepth = 0.1;
 
     // Create the base seat geometry (main body of the sofa)

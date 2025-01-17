@@ -6,7 +6,7 @@ const Shelf = ({ position }) => {
 
   if (!geometryRef.current) {
     // Dimensions for shelf components
-    const shelfWidth = 3;
+    const shelfWidth = 5;
     const shelfHeight = 0.2;
     const shelfDepth = 1;
 
@@ -26,28 +26,28 @@ const Shelf = ({ position }) => {
     // Create and position the second rack (middle rack)
     const secondRackGeometry = new THREE.BoxGeometry(rackHeight, shelfDepth, shelfWidth); // Rotated rack
     const secondRack = new THREE.Mesh(secondRackGeometry, new THREE.MeshPhongMaterial({ color: "#deb887" }));
-    secondRack.position.set(0, shelfHeight + 1, 0); // Offset vertically to create the 'S' pattern
+    secondRack.position.set(0, shelfHeight + 1.5, 0); // Offset vertically to create the 'S' pattern
     secondRack.rotation.z = Math.PI / 2; // Rotate 90 degrees
     geometryRef.current.add(secondRack);
 
     // Create and position the third rack (top rack)
     const thirdRackGeometry = new THREE.BoxGeometry(rackHeight, shelfDepth, shelfWidth); // Rotated rack
     const thirdRack = new THREE.Mesh(thirdRackGeometry, new THREE.MeshPhongMaterial({ color: "#8b4513" }));
-    thirdRack.position.set(0, 2 * (shelfHeight + 1), 0); // Offset vertically
+    thirdRack.position.set(0, 2 * (shelfHeight + 1.5), 0); // Offset vertically
     thirdRack.rotation.z = Math.PI / 2; // Rotate 90 degrees
     geometryRef.current.add(thirdRack);
 
     // Create supports from the first to the second rack (left side)
-    const leftSupportGeometry = new THREE.BoxGeometry(1, shelfDepth, 0.2);
+    const leftSupportGeometry = new THREE.BoxGeometry(1.5, shelfDepth, 0.2);
     const leftSupport = new THREE.Mesh(leftSupportGeometry, new THREE.MeshPhongMaterial({ color: "#a52a2a" }));
-    leftSupport.position.set(0, shelfHeight * 1.5 + 1.5, -1.4);
+    leftSupport.position.set(0, shelfHeight * 1.5 + 2.25, -2.4);
     leftSupport.rotation.z = Math.PI / 2; // Rotate 90 degrees
     geometryRef.current.add(leftSupport);
 
     // Create supports from the second to the third rack (right side)
-    const rightSupportGeometry = new THREE.BoxGeometry(1, shelfDepth, 0.2);
+    const rightSupportGeometry = new THREE.BoxGeometry(1.5, shelfDepth, 0.2);
     const rightSupport = new THREE.Mesh(rightSupportGeometry, new THREE.MeshPhongMaterial({ color: "#a52a2a" }));
-    rightSupport.position.set(0, shelfHeight * 1.5 +0.3, 1.4);
+    rightSupport.position.set(0, shelfHeight * 1.5 +0.55, 2.4);
     rightSupport.rotation.z = Math.PI / 2; // Rotate 90 degrees
     geometryRef.current.add(rightSupport);
   }

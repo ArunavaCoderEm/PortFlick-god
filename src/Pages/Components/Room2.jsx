@@ -6,7 +6,7 @@ const Room2 = ({onCenterImageClick}) => {
     //wall textures
     const [back, front, top, bottom, left, right] = useTexture([
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqN5SnFxURJH1ewfhX38y5KQ1cDT_b1-O55A&s", // Back wall
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqN5SnFxURJH1ewfhX38y5KQ1cDT_b1-O55A&s", // Front wall
+      "https://thumbs.dreamstime.com/b/wall-painting-white-rabbit-having-tea-party-bangkok-thailand-august-photo-alice-s-adventures-wonderland-theme-replica-111185931.jpg", // Front wall
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqN5SnFxURJH1ewfhX38y5KQ1cDT_b1-O55A&s", // Top wall
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqN5SnFxURJH1ewfhX38y5KQ1cDT_b1-O55A&s", // Bottom wall
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqN5SnFxURJH1ewfhX38y5KQ1cDT_b1-O55A&s", // Left wall
@@ -28,29 +28,29 @@ const Room2 = ({onCenterImageClick}) => {
     ];
   
     const centerImageTexture = useTexture([
-      "https://frenchicpaint.co.uk/cdn/shop/articles/Should-Interior-Doors-Be-Painted-the-Same-Colour-as-the-Walls.jpg?v=1638788923&width=1500"
-  
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ6tXME27HOw_PYA2WOb5_Nxt0QWWZzOljqg&s",//door
+      "https://frenchicpaint.co.uk/cdn/shop/articles/Should-Interior-Doors-Be-Painted-the-Same-Colour-as-the-Walls.jpg?v=1638788923&width=1500",  
    ]);
   
     return (
       <>
       {/* Cube room */}
       <mesh>
-        <boxGeometry args={[10, 6, 10]} />
+      <boxGeometry args={[20, 10, 20]} />
         {materials.map((material, index) => (
           <primitive attach={`material-${index}`} key={index} object={material} />
         ))}
       </mesh>
   
       
-      <mesh position={[0, 0, 4.95]} rotation={[0, 0, 0]}  onClick={onCenterImageClick}>
-        <planeGeometry args={[4, 3]} />
+      <mesh position={[3, -1.5, -9.95]} rotation={[0, 0, 0]}  onClick={onCenterImageClick}>
+        <planeGeometry args={[3, 7]} />
         <meshBasicMaterial map={centerImageTexture[0]} side={THREE.DoubleSide} />
       </mesh>
   
-      <mesh position={[4.95, 0,0]}rotation={[0, -Math.PI / 2, 0]}>
+      <mesh position={[9.95, 0,0]} rotation={[0, -Math.PI / 2, 0]}>
         <planeGeometry args={[4, 3]} />
-        <meshBasicMaterial map={centerImageTexture[0]} side={THREE.DoubleSide} />
+        <meshBasicMaterial map={centerImageTexture[1]} side={THREE.DoubleSide} />
       </mesh>
     </>
     

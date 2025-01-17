@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'; 
 import Footer from './Components/Footer'; 
 import NavBar from './Components/Navbar'; 
+import { useNavigate } from "react-router-dom";
 import {useMotionTemplate,useMotionValue,motion,animate} from 'framer-motion';
 import { StarIcon } from '@heroicons/react/24/solid'
 import { FiArrowRight } from "react-icons/fi";
@@ -11,7 +12,18 @@ const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
 
 const Home = () => {
 
+  const navigate = useNavigate();
+
   const color = useMotionValue(COLORS_TOP[0]);
+
+  const handleGetStarted = async() => {
+    navigate("/artRoom");
+    // if (isLoggedIn) {
+    //   navigate("/dashboard");
+    // } else {
+    //   await handleLogin();
+    // }
+  };
 
   useEffect(() => {
     animate(color, COLORS_TOP, {
@@ -42,7 +54,7 @@ const Home = () => {
         
         <span className="mb-1.5 inline-block rounded-full bg-gray-600/50 px-3 py-1.5 text-sm">
           <StarIcon className="w-3 h-3 inline-block mr-2 mb-1 " />
-          Starry Night
+          My3DShowcase
         </span>
 
         <h1 className="max-w-3xl bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center text-3xl font-medium leading-tight text-transparent sm:text-5xl sm:leading-tight md:text-6xl md:leading-tight">
@@ -74,6 +86,7 @@ const Home = () => {
             scale: 0.985,
           }}
           className="group relative flex w-fit items-center gap-1.5 rounded-full bg-gray-950/10 px-4 py-2 text-gray-50 transition-colors hover:bg-gray-950/50"
+          onClick={handleGetStarted}
         >
           Get Started
           <FiArrowRight className="transition-transform group-hover:-rotate-45 group-active:-rotate-12" />

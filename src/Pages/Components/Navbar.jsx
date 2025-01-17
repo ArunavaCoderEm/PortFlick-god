@@ -6,7 +6,7 @@ const Navbar = () => {
     <nav className="bg-gray-950 text-white px-4 py-4 sticky top-0 z-50">
       <div className="container mx-auto flex items-center justify-between">
         {/* Logo */}
-        <div className="text-2xl font-bold">StarSite</div>
+        <div className="text-2xl font-bold">My3DShowcase</div>
 
 
         <div className="hidden md:flex flex-1 justify-center space-x-8">
@@ -59,7 +59,7 @@ const Navbar = () => {
         <Link to="/about" className="hover:text-gray-300">
           About
         </Link>
-        <Link to="/" className="hover:text-gray-300">
+        <Link to="/artRoom" className="hover:text-gray-300">
           Services
         </Link>
         <Link to="/" className="hover:text-gray-300">
