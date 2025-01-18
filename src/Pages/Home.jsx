@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'; 
-import Footer from './Components/Footer'; 
 import NavBar from './Components/Navbar'; 
 import { useNavigate } from "react-router-dom";
 import {useMotionTemplate,useMotionValue,motion,animate} from 'framer-motion';
@@ -7,22 +6,22 @@ import { StarIcon } from '@heroicons/react/24/solid'
 import { FiArrowRight } from "react-icons/fi";
 import { Stars } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
+import { useUser } from "@clerk/clerk-react";
 
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
 
 const Home = () => {
 
   const navigate = useNavigate();
-
   const color = useMotionValue(COLORS_TOP[0]);
+  const { isSignedIn } = useUser();
 
   const handleGetStarted = async() => {
-    navigate("/artRoom");
-    // if (isLoggedIn) {
-    //   navigate("/dashboard");
-    // } else {
-    //   await handleLogin();
-    // }
+    if (isSignedIn) {
+      navigate("/dashboard");
+    } else {
+      await navigate("/login");
+    }
   };
 
   useEffect(() => {
@@ -88,7 +87,7 @@ const Home = () => {
           className="group relative flex w-fit items-center gap-1.5 rounded-full bg-gray-950/10 px-4 py-2 text-gray-50 transition-colors hover:bg-gray-950/50"
           onClick={handleGetStarted}
         >
-          Get Started
+          {isSignedIn ? "Go To Dashboard" : "Get Started"}
           <FiArrowRight className="transition-transform group-hover:-rotate-45 group-active:-rotate-12" />
         </motion.button>
         

@@ -1,7 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "@clerk/clerk-react";
 
 const Navbar = () => {
+
+  const navigate = useNavigate();
+  const { isSignedIn } = useUser();
+
+  const handleGetStarted = async() => {
+    if (isSignedIn) {
+      navigate("/dashboard");
+    } else {
+      await navigate("/login");
+    }
+  };
+
   return (
     <nav className="bg-gray-950 text-white px-4 py-4 sticky top-0 z-50">
       <div className="container mx-auto flex items-center justify-between">
@@ -26,12 +40,12 @@ const Navbar = () => {
 
         {/* Sign In Button for Desktop */}
         <div className="hidden md:block">
-          <Link
-            to="/"
-            className="bg-gray-950 hover:bg-gray-950 text-white px-8 py-2 rounded-lg border border-purple-400 shadow-[0px_0px_14px_rgba(207,147,217,0.5)] hover:shadow-[0px_0px_24px_rgba(207,147,217,0.9)] hover:border-purple-300"
-          >
-            Sign In
-          </Link>
+        <button
+          className="bg-gray-950 hover:bg-gray-950 text-white px-8 py-2 rounded-lg border border-purple-400 shadow-[0px_0px_14px_rgba(207,147,217,0.5)] hover:shadow-[0px_0px_24px_rgba(207,147,217,0.9)] hover:border-purple-300"
+          onClick={handleGetStarted}
+        >
+          {isSignedIn ? "Dashboard" : "Sign In"}
+        </button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -67,12 +81,12 @@ const Navbar = () => {
         </Link>
 
         {/* Sign In Button for Mobile */}
-        <Link
-          to="/signin"
+        <button
           className="bg-gray-950 hover:bg-gray-950 text-white px-8 py-2 rounded-lg border border-purple-400 shadow-[0px_0px_14px_rgba(207,147,217,0.5)] hover:shadow-[0px_0px_24px_rgba(207,147,217,0.9)] hover:border-purple-300"
+          onClick={handleGetStarted}
         >
           Sign In
-        </Link>
+        </button>
       </div>
     </nav>
   );
