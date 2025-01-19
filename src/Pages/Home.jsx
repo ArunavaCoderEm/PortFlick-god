@@ -34,7 +34,7 @@ const Home = () => {
   }, []);
 
   const backgroundImage = useMotionTemplate`radial-gradient(140% 140% at 50% 0%, #020617 50%, ${color})`;
-  const background =  useMotionTemplate`radial-gradient(0% 0% at 50% 0%, #020617 50%, ${color})`;
+  // const background =  useMotionTemplate`radial-gradient(0% 0% at 50% 0%, #020617 50%, ${color})`;
 
   const border = useMotionTemplate`1px solid ${color}`;
   const boxShadow = useMotionTemplate`0px 4px 24px ${color}`;

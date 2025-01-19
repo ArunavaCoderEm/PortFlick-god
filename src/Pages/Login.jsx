@@ -15,13 +15,13 @@ const Login = () => {
                 <SignIn afterSignInUrl="/dashboard" />
             </div>
             <p className="mt-4 text-gray-600">
-                Don't have an account?{" "}
-                <button
+              Don't have an account?{" "}
+              <button
                 onClick={() => navigate("/signup")}
                 className="text-blue-500 hover:underline font-medium"
                 >
                 Sign Up
-                </button>
+              </button>
             </p>
         </div>
     </div>
