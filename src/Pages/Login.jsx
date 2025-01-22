@@ -10,7 +10,7 @@ const Login = () => {
     <div>
          <NavBar/>
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-950">
-            <h1 className="text-2xl font-bold text-gray-800 mb-4">Login Page</h1>
+            <h1 className="text-4xl font-bold text-gray-200 mb-10">Login Page</h1>
             <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
                 <SignIn afterSignInUrl="/dashboard" />
             </div>
@@ -18,7 +18,7 @@ const Login = () => {
               Don't have an account?{" "}
               <button
                 onClick={() => navigate("/signup")}
-                className="text-blue-500 hover:underline font-medium"
+                className="text-purple-400 hover:underline font-medium"
                 >
                 Sign Up
               </button>

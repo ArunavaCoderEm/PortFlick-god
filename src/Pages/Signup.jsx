@@ -10,7 +10,7 @@ const Signup = () => {
     <div>
         <NavBar/>
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-950">
-            <h1 className="text-2xl font-bold text-gray-800 mb-4">Signup Page</h1>
+          <h1 className="text-4xl font-bold text-gray-200 mb-10">SignUp Page</h1>
             <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
                 <SignUp afterSignUpUrl="/dashboard" />
             </div>
@@ -18,7 +18,7 @@ const Signup = () => {
               Already have an account?{" "}
               <button
                 onClick={() => navigate("/login")}
-                className="text-blue-500 hover:underline font-medium"
+                className="text-purple-400 hover:underline font-medium"
                 >
                 Login
               </button>

@@ -5,7 +5,7 @@ const Account = () => {
   const { user } = useUser();
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-purple-500 to-gray-900 text-white">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-purple-400 to-gray-900 text-white">
       <div className="bg-white text-gray-900 shadow-lg rounded-lg p-8 max-w-md w-full">
         <h1 className="text-2xl font-bold text-center mb-6">Account Details</h1>
         <div className="space-y-4">

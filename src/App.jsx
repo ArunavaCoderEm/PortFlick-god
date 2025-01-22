@@ -7,8 +7,9 @@ import ArtRoom from './Pages/ArtRoom';
 import Dashboard from './Pages/Dashboard';
 import Login from './Pages/Login';
 import Signup from './Pages/Signup';
-import Template from './Pages/Components/Template';
-import Account from './Pages/Components/UserAccount';
+import Template from './Pages/Template';
+import Account from './Pages/UserAccount';
+import DashboardHome from './Pages/DashboardHome';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/dashboard" element={<Dashboard />} >
           {/* <Route index element={<Template />} />  */}
+          <Route index element={<DashboardHome />} />    
           <Route path="/dashboard/template" element={<Template />} />
           <Route path="/dashboard/account" element={<Account />} />
         </Route>

@@ -85,7 +85,7 @@ const Navbar = () => {
           className="bg-gray-950 hover:bg-gray-950 text-white px-8 py-2 rounded-lg border border-purple-400 shadow-[0px_0px_14px_rgba(207,147,217,0.5)] hover:shadow-[0px_0px_24px_rgba(207,147,217,0.9)] hover:border-purple-300"
           onClick={handleGetStarted}
         >
-          Sign In
+          {isSignedIn ? "Dashboard" : "Sign In"}
         </button>
       </div>
     </nav>

@@ -29,7 +29,7 @@ const Dashboard = () => {
     <div>
       <NavBar />
       <AddUser user={user} />
-      <div className="flex bg-gradient-to-b from-white to-hoverColor">
+      <div className="flex bg-gray-950">
       {/* Sidebar */}
       <Sidebar
         isSidebarOpen={isSidebarOpen}
@@ -39,7 +39,7 @@ const Dashboard = () => {
 
       {/* Main content */}
       <div
-        className={`flex-1 mt-[60px] p-4 transition-all duration-300  ${
+        className={`flex-1 mt-[10px] p-4 transition-all duration-300  ${
           isSidebarOpen || isLargeScreen ? 'lg:ml-[15%]' : 'ml-0'
         }`}
       >
