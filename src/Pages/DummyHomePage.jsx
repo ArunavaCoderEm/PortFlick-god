@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRightCircle, Code2, UserCircle } from "lucide-react";
+import { ArrowRightCircle, Book, Code2, UserCircle } from "lucide-react";
 import BackgroundGrid from "./Components/BGGrid";
 import { AnimatedShinyText } from "./Components/ShinyText";
 import { SparklesText } from "./Components/Sparkle";
@@ -68,7 +68,8 @@ export default function DummyHomePage() {
                 <UserCircle className="text-white w-6" />
                 Sign In
               </button>
-              <button className="border-[1px] border-white px-8 py-3 text-white font-bold rounded-lg hover:scale-95 transition-all duration-200">
+              <button className="border-[1px] border-white px-8 py-3 text-white font-bold rounded-lg hover:scale-95 flex items-center gap-2 transition-all duration-200">
+                <Book className="w-6" />
                 Docs
               </button>
             </div>
