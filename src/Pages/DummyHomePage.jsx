@@ -10,7 +10,7 @@ export default function DummyHomePage() {
 
       <nav className="bg-[#1a1a1a] barlow w-[40rem] mx-auto py-4 rounded-lg shadow-lg z-[11]">
         <div className="flex justify-between items-center px-8">
-          <div className="text-[#e0af0c] text-2xl font-bold">PriBaby</div>
+          <div className="text-[#e0af0c] text-2xl font-bold">PortFlick</div>
           <ul className="flex gap-6 text-white">
             <li>Home</li>
             <li>About</li>
