@@ -50,9 +50,9 @@ const AboutUs = () => {
         {/* <CardSpotlightDemo/> */}
 
 
-      <div>
+      {/* <div>
         <p className='text-red-400'> <UsersList /></p> 
-      </div>
+      </div> */}
 
      </section>
      
