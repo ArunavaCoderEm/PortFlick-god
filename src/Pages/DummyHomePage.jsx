@@ -1,19 +1,11 @@
 import React from "react";
-import { Code2, Terminal, Cpu, Database, Network, Shield } from "lucide-react";
-
-function FeatureCard({ icon: Icon, title, description }) {
-  return (
-    <div className="double-border p-6 rounded-lg transition-transform hover:scale-105">
-      <Icon className="w-8 h-8 text-[#CB9D06] mb-4" />
-      <h3 className="text-xl font-bold mb-2 text-white">{title}</h3>
-      <p className="text-gray-400">{description}</p>
-    </div>
-  );
-}
+import { Code2 } from "lucide-react";
+import BackgroundGrid from "./Components/BGGrid";
 
 export default function DummyHomePage() {
   return (
     <>
+    <BackgroundGrid />
       <div className="min-h-screen py-4 barlow bg-[#080808] flex items-center noise-container">
         <div className="container mx-auto px-4 py-16 relative">
           <div className="text-center mb-20">
@@ -37,7 +29,7 @@ export default function DummyHomePage() {
               templates. No coding required – fill form, drag image, and
               showcase your talent!
             </p>
-            <button className="bg-gradient-to-b from-[#e0af0c] to-[#5f4902] text-[#0E0E0E] px-8 py-3 rounded-lg font-bold hover:bg-[#CB9D06]/90 transition-colors">
+            <button className="bg-gradient-to-b from-[#e0af0c] to-[#5f4902] text-[#0E0E0E] px-8 py-3 rounded-lg font-bold hover:opacity-90 transition-all duration-200">
               Get Started
             </button>
           </div>
