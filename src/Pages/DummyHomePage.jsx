@@ -1,11 +1,24 @@
 import React from "react";
-import { Code2 } from "lucide-react";
+import { Code2, Rocket } from "lucide-react";
 import BackgroundGrid from "./Components/BGGrid";
 
 export default function DummyHomePage() {
   return (
     <>
-    <BackgroundGrid />
+      <BackgroundGrid />
+
+      <nav className="bg-[#1a1a1a] barlow w-[40rem] mx-auto py-4 rounded-lg shadow-lg">
+        <div className="flex justify-between items-center px-8">
+          <div className="text-[#e0af0c] text-2xl font-bold">PriBaby</div>
+          <ul className="flex gap-6 text-white">
+            <li>Home</li>
+            <li>About</li>
+            <li>Dashboard</li>
+            <li>Contact</li>
+          </ul>
+        <button className="bg-white text-black px-3 py-1 rounded-md font-semibold">Dashboard</button>
+        </div>
+      </nav>
       <div className="min-h-screen py-4 barlow bg-[#080808] flex items-center noise-container">
         <div className="container mx-auto px-4 py-16 relative">
           <div className="text-center mb-20">
