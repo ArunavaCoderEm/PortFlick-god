@@ -1,13 +1,14 @@
 import React from "react";
-import { Code2, Rocket } from "lucide-react";
+import { ArrowRightCircle, Code2, UserCircle } from "lucide-react";
 import BackgroundGrid from "./Components/BGGrid";
+import { AnimatedShinyText } from "./Components/ShinyText";
 
 export default function DummyHomePage() {
   return (
     <>
       <BackgroundGrid />
 
-      <nav className="bg-[#1a1a1a] barlow w-[40rem] mx-auto py-4 rounded-lg shadow-lg">
+      <nav className="bg-[#1a1a1a] barlow w-[40rem] mx-auto py-4 rounded-lg shadow-lg z-[11]">
         <div className="flex justify-between items-center px-8">
           <div className="text-[#e0af0c] text-2xl font-bold">PriBaby</div>
           <ul className="flex gap-6 text-white">
@@ -16,11 +17,20 @@ export default function DummyHomePage() {
             <li>Dashboard</li>
             <li>Contact</li>
           </ul>
-        <button className="bg-white text-black px-3 py-1 rounded-md font-semibold">Dashboard</button>
+          <button className="bg-white text-black px-3 py-1 rounded-md font-semibold">
+            Dashboard
+          </button>
         </div>
       </nav>
       <div className="min-h-screen py-4 barlow bg-[#080808] flex items-center noise-container">
-        <div className="container mx-auto px-4 py-16 relative">
+        <div className="container flex flex-col items-center mx-auto px-4 py-16 relative">
+          <div className="shadow-inner shadow-[#e0af0c] w-64 items-center justify-center flex py-1 rounded-full mb-4 animate-pulse">
+            <AnimatedShinyText
+              className={"z-40 text-2xl flex items-center gap-2 font-normal"}
+            >
+              Get Started <ArrowRightCircle className="w-6" />
+            </AnimatedShinyText>
+          </div>
           <div className="text-center mb-20">
             <h1 className="text-5xl md:text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-b from-gray-100 to-gray-500 mb-6 leading-tight">
               <div className="flex justify-center items-center gap-x-3 gap-y-3">
@@ -42,9 +52,15 @@ export default function DummyHomePage() {
               templates. No coding required – fill form, drag image, and
               showcase your talent!
             </p>
-            <button className="bg-gradient-to-b from-[#e0af0c] to-[#5f4902] text-[#0E0E0E] px-8 py-3 rounded-lg font-bold hover:opacity-90 transition-all duration-200">
-              Get Started
-            </button>
+            <div className="flex items-center justify-center gap-3">
+              <button className="bg-gradient-to-b from-[#e0af0c] to-[#5f4902] text-white px-8 py-3 rounded-lg font-bold flex gap-2 items-center hover:opacity-90 transition-all duration-200">
+                <UserCircle className="text-white w-6" />
+                Sign In
+              </button>
+              <button className="border-[1px] border-white px-8 py-3 text-white font-bold rounded-lg hover:scale-95 transition-all duration-200">
+                Docs
+              </button>
+            </div>
           </div>
         </div>
       </div>
