@@ -10,6 +10,7 @@ import Signup from './Pages/Signup';
 import Template from './Pages/Template';
 import Account from './Pages/UserAccount';
 import DashboardHome from './Pages/DashboardHome';
+import DummyHomePage from './Pages/DummyHomePage';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/about" element={<About />} />
+        <Route path="/dummyhome" element={<DummyHomePage />} />
         <Route path="/dashboard" element={<Dashboard />} >
           {/* <Route index element={<Template />} />  */}
           <Route index element={<DashboardHome />} />    

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Domine:wght@400..700&family=Funnel+Display:wght@300..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Oswald:wght@200..700&family=Supermercado+One&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -19,4 +21,56 @@
 
 ::-webkit-scrollbar-track {
   background-color: rgb(3, 7, 18); 
+}
+
+@keyframes noise {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+
+.barlow {
+  font-family: "Barlow", serif;
+  font-style: normal;
+}
+
+.noise-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.noise-container::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.1;
+  animation: noise 28s infinite linear;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.content-container {
+  position: relative;
+  z-index: 2;
+}
+
+.double-border {
+  position: relative;
+  border: 1px solid #CB9D06;
+  backdrop-filter: blur(4px);
+  background: rgba(11, 11, 11, 0.95);
+}
+
+.double-border::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border: 1px solid #CB9D06;
+  opacity: 0.5;
 }
