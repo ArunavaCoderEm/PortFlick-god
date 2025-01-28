@@ -56,21 +56,3 @@
   position: relative;
   z-index: 2;
 }
-
-.double-border {
-  position: relative;
-  border: 1px solid #CB9D06;
-  backdrop-filter: blur(4px);
-  background: rgba(11, 11, 11, 0.95);
-}
-
-.double-border::before {
-  content: "";
-  position: absolute;
-  top: -8px;
-  left: -8px;
-  right: -8px;
-  bottom: -8px;
-  border: 1px solid #CB9D06;
-  opacity: 0.5;
-}

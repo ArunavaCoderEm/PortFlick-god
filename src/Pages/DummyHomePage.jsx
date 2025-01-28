@@ -2,31 +2,42 @@ import React from "react";
 import { ArrowRightCircle, Code2, UserCircle } from "lucide-react";
 import BackgroundGrid from "./Components/BGGrid";
 import { AnimatedShinyText } from "./Components/ShinyText";
+import { SparklesText } from "./Components/Sparkle";
 
 export default function DummyHomePage() {
   return (
     <>
       <BackgroundGrid />
 
-      <nav className="bg-[#1a1a1a] barlow w-[40rem] mx-auto py-4 rounded-lg shadow-lg z-[11]">
-        <div className="flex justify-between items-center px-8">
-          <div className="text-[#e0af0c] text-2xl font-bold">PortFlick</div>
-          <ul className="flex gap-6 text-white">
-            <li>Home</li>
-            <li>About</li>
-            <li>Dashboard</li>
-            <li>Contact</li>
-          </ul>
-          <button className="bg-white text-black px-3 py-1 rounded-md font-semibold">
-            Dashboard
-          </button>
-        </div>
-      </nav>
+      <div className="flex justify-center">
+        <nav className="bg-[#1a1a1a] fixed top-3 barlow w-[45rem] mx-auto py-4 rounded-lg shadow-lg z-[11]">
+          <div className="flex justify-between items-center px-8">
+            <div className="text-[#e0af0c] text-2xl font-bold flex items-center">
+              <img
+                src="./logo.jpg"
+                alt="logo"
+                className="w-7 object-cover rounded-full"
+              />
+              ortFlick
+            </div>
+            <ul className="flex gap-6 cursor-pointer text-white">
+              <li>Home</li>
+              <li>About</li>
+              <li>Dashboard</li>
+              <li>Contact</li>
+            </ul>
+            <button className="bg-white transition-all duration-200 hover:scale-95 text-black px-3 py-1 rounded-md font-semibold">
+              Dashboard
+            </button>
+          </div>
+        </nav>
+      </div>
+
       <div className="min-h-screen py-4 barlow bg-[#080808] flex items-center noise-container">
-        <div className="container flex flex-col items-center mx-auto px-4 py-16 relative">
-          <div className="shadow-inner shadow-[#e0af0c] w-64 items-center justify-center flex py-1 rounded-full mb-4 animate-pulse">
+        <div className="container mt-20 flex flex-col items-center mx-auto px-4 py-16 relative">
+          <div className="shadow-inner shadow-[#e0af0c] w-48 items-center justify-center flex py-2 rounded-full mb-4">
             <AnimatedShinyText
-              className={"z-40 text-2xl flex items-center gap-2 font-normal"}
+              className={"z-40 text-sm flex items-center gap-2 font-normal"}
             >
               Get Started <ArrowRightCircle className="w-6" />
             </AnimatedShinyText>
@@ -35,7 +46,7 @@ export default function DummyHomePage() {
             <h1 className="text-5xl md:text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-b from-gray-100 to-gray-500 mb-6 leading-tight">
               <div className="flex justify-center items-center gap-x-3 gap-y-3">
                 <Code2 className="w-12 h-12 text-[#e0af0c]" />
-                Craft Your Dream Portfolio
+                Craft Your Dream <SparklesText text={"Portfolio"} />
                 <Code2 className="w-12 h-12 text-[#e0af0c]" />
               </div>
               <div className="flex items-center justify-center flex-col gap-2">
