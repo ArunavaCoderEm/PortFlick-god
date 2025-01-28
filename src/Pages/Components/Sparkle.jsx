@@ -73,7 +73,7 @@ const SparklesText = ({
 
   return (
     <div
-      className={cn("text-6xl font-bold", className)}
+      className={cn("text-5xl md:text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-b from-gray-100 to-gray-500 mt-1 leading-tight", className)}
       {...props}
       style={{
         "--sparkles-first-color": colors.first,

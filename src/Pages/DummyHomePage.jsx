@@ -10,7 +10,7 @@ export default function DummyHomePage() {
       <BackgroundGrid />
 
       <div className="flex justify-center">
-        <nav className="bg-[#1a1a1a] fixed top-3 barlow w-[45rem] mx-auto py-4 rounded-lg shadow-lg z-[11]">
+        <nav className="bg-[#1a1a1a]/70 backdrop-blur-sm fixed top-3 barlow w-[45rem] mx-auto py-4 rounded-lg shadow-lg z-[11]">
           <div className="flex justify-between items-center px-8">
             <div className="text-[#e0af0c] text-2xl font-bold flex items-center">
               <img
@@ -46,7 +46,7 @@ export default function DummyHomePage() {
             <h1 className="text-5xl md:text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-b from-gray-100 to-gray-500 mb-6 leading-tight">
               <div className="flex justify-center items-center gap-x-3 gap-y-3">
                 <Code2 className="w-12 h-12 text-[#e0af0c]" />
-                Craft Your Dream <SparklesText text={"Portfolio"} />
+                Craft Your Dream {" "}<SparklesText text={"Portfolio"} />
                 <Code2 className="w-12 h-12 text-[#e0af0c]" />
               </div>
               <div className="flex items-center justify-center flex-col gap-2">
