@@ -1,19 +1,23 @@
-import React from "react";
-import { ArrowRightCircle, Book, Code2, UserCircle } from "lucide-react";
+import React, { useState } from "react";
+import { ArrowRightCircle, Book, Code2, UserCircle, Menu } from "lucide-react";
 import BackgroundGrid from "./Components/BGGrid";
 import { AnimatedShinyText } from "./Components/ShinyText";
 import { SparklesText } from "./Components/Sparkle";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 export default function DummyHomePage() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
   return (
     <>
       <BackgroundGrid />
 
       <div className="flex justify-center">
         <motion.nav
-          className="bg-[#1a1a1a]/70 backdrop-blur-sm fixed top-3 barlow w-[45rem] mx-auto py-4 rounded-lg shadow-lg z-[11]"
+          className="bg-[#1a1a1a]/70 backdrop-blur-sm fixed top-0 md:top-3 barlow w-full lg:w-[45rem] mx-auto py-4 rounded-lg shadow-lg z-[11]"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
@@ -33,36 +37,38 @@ export default function DummyHomePage() {
               ortFlick
             </motion.div>
 
+            <div className="lg:hidden flex items-center">
+              <button className="text-white" onClick={toggleMenu}>
+                <Menu size={24} />
+              </button>
+            </div>
+
             <motion.ul
-              className="flex gap-6 cursor-pointer text-white"
+              className={`lg:flex gap-6 cursor-pointer text-white ${
+                isMenuOpen
+                  ? "flex flex-col absolute bg-[#1a1a1a] top-16 left-1/2 transform -translate-x-1/2 w-full px-4 py-4 rounded-md shadow-lg"
+                  : "hidden lg:flex"
+              }`}
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.6, duration: 1 }}
             >
-              <motion.li
-                className="transition-all hover:text-[#e0af0c] duration-200"
-              >
-                <Link>Home</Link>
+              <motion.li className="transition-all hover:text-[#e0af0c] duration-200">
+                <Link to="/">Home</Link>
               </motion.li>
-              <motion.li
-                className="transition-all hover:text-[#e0af0c] duration-200"
-              >
-                <Link>About</Link>
+              <motion.li className="transition-all hover:text-[#e0af0c] duration-200">
+                <Link to="/about">About</Link>
               </motion.li>
-              <motion.li
-                className="transition-all hover:text-[#e0af0c] duration-200"
-              >
-                <Link>Dashboard</Link>
+              <motion.li className="transition-all hover:text-[#e0af0c] duration-200">
+                <Link to="/dashboard">Dashboard</Link>
               </motion.li>
-              <motion.li
-                className="transition-all hover:text-[#e0af0c] duration-200"
-              >
-                <Link>Contact</Link>
+              <motion.li className="transition-all hover:text-[#e0af0c] duration-200">
+                <Link to="/contact">Contact</Link>
               </motion.li>
             </motion.ul>
 
             <motion.button
-              className="bg-white transition-all duration-200 hover:scale-95 text-black px-3 py-1 rounded-md font-semibold"
+              className="bg-white transition-all duration-200 hover:scale-95 text-black px-3 py-1 rounded-md font-semibold hidden lg:block"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 1 }}
@@ -103,7 +109,9 @@ export default function DummyHomePage() {
                 >
                   <Code2 className="w-12 h-12 text-[#e0af0c]" />
                 </motion.div>
-                Craft Your Dream <SparklesText text={"Portfolio"} />
+                <span className="flex md:flex-row flex-col items-center justify-center">
+                  Craft Your Dream <SparklesText text={"Portfolio"} />
+                </span>
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
