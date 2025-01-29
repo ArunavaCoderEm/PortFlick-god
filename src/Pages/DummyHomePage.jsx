@@ -60,18 +60,26 @@ export default function DummyHomePage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.6, duration: 1 }}
             >
-              <motion.li className="transition-all shadow-inner shadow-gray-300/20 w-full text-center py-1 rounded-lg hover:text-[#e0af0c] duration-200">
+              <motion.li className="transition-all shadow-inner shadow-gray-300/20 px-2 w-full text-center py-1 rounded-lg hover:text-[#e0af0c] duration-200">
                 <Link to="/">Home</Link>
               </motion.li>
-              <motion.li className="transition-all shadow-inner shadow-gray-300/20 w-full text-center py-1 rounded-lg hover:text-[#e0af0c] duration-200">
+              <motion.li className="transition-all shadow-inner shadow-gray-300/20 px-2 w-full text-center py-1 rounded-lg hover:text-[#e0af0c] duration-200">
                 <Link to="/about">About</Link>
               </motion.li>
-              <motion.li className="transition-all shadow-inner shadow-gray-300/20 w-full text-center py-1 rounded-lg hover:text-[#e0af0c] duration-200">
+              <motion.li className="transition-all shadow-inner shadow-gray-300/20 px-2 w-full text-center py-1 rounded-lg hover:text-[#e0af0c] duration-200">
                 <Link to="/dashboard">Dashboard</Link>
               </motion.li>
-              <motion.li className="transition-all shadow-inner shadow-gray-300/20 w-full text-center py-1 rounded-lg hover:text-[#e0af0c] duration-200">
+              <motion.li className="transition-all shadow-inner shadow-gray-300/20 px-2 w-full text-center py-1 rounded-lg hover:text-[#e0af0c] duration-200">
                 <Link to="/contact">Contact</Link>
               </motion.li>
+              <motion.button
+                className="bg-white transition-all duration-200 hover:scale-95 text-black px-3 py-1 rounded-md font-semibold block md:hidden"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.8, duration: 1 }}
+              >
+                Dashboard
+              </motion.button>
             </motion.ul>
 
             <motion.button
