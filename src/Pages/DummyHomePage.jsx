@@ -40,26 +40,22 @@ export default function DummyHomePage() {
               transition={{ delay: 0.6, duration: 1 }}
             >
               <motion.li
-                whileHover={{ scale: 0.0 }}
-                className="transition-all duration-200"
+                className="transition-all hover:text-[#e0af0c] duration-200"
               >
                 <Link>Home</Link>
               </motion.li>
               <motion.li
-                whileHover={{ scale: 0.0 }}
-                className="transition-all duration-200"
+                className="transition-all hover:text-[#e0af0c] duration-200"
               >
                 <Link>About</Link>
               </motion.li>
               <motion.li
-                whileHover={{ scale: 0.0 }}
-                className="transition-all duration-200"
+                className="transition-all hover:text-[#e0af0c] duration-200"
               >
                 <Link>Dashboard</Link>
               </motion.li>
               <motion.li
-                whileHover={{ scale: 0.0 }}
-                className="transition-all duration-200"
+                className="transition-all hover:text-[#e0af0c] duration-200"
               >
                 <Link>Contact</Link>
               </motion.li>
