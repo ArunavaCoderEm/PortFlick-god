@@ -17,7 +17,7 @@ export default function DummyHomePage() {
 
       <div className="flex justify-center">
         <motion.nav
-          className="bg-[#1a1a1a]/70 backdrop-blur-sm fixed top-0 md:top-3 barlow w-full lg:w-[45rem] mx-auto py-4 rounded-lg shadow-lg z-[11]"
+          className="md:bg-[#1a1a1a]/70 bg-[#1a1a1a] md:backdrop-blur-sm fixed top-0 md:top-3 barlow w-full lg:w-[45rem] mx-auto py-4 rounded-lg shadow-lg z-[11]"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
@@ -44,9 +44,9 @@ export default function DummyHomePage() {
             </div>
 
             <motion.ul
-              className={`lg:flex gap-6 cursor-pointer text-white ${
+              className={`lg:flex gap-6 z-50 cursor-pointer text-white ${
                 isMenuOpen
-                  ? "flex flex-col absolute bg-[#1a1a1a] top-16 left-1/2 transform -translate-x-1/2 w-full px-4 py-4 rounded-md shadow-lg"
+                  ? "flex flex-col absolute bg-[#1a1a1a] top-16 w-full px-4 py-4 rounded-md shadow-lg"
                   : "hidden lg:flex"
               }`}
               initial={{ opacity: 0, x: 50 }}
