@@ -51,25 +51,25 @@ export default function DummyHomePage() {
             </div>
 
             <motion.ul
-              className={`lg:flex gap-6 z-50 cursor-pointer text-white ${
+              className={`lg:flex gap-3 z-50 items-center cursor-pointer text-white ${
                 isMenuOpen
-                  ? "flex flex-col absolute bg-[#1a1a1a] top-16 w-full px-4 py-4 rounded-md shadow-lg"
+                  ? "flex flex-col absolute bg-[#1a1a1a] left-0 top-16 w-full px-4 py-4 rounded-md shadow-lg"
                   : "hidden lg:flex"
               }`}
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.6, duration: 1 }}
             >
-              <motion.li className="transition-all hover:text-[#e0af0c] duration-200">
+              <motion.li className="transition-all shadow-inner shadow-gray-300/20 w-full text-center py-1 rounded-lg hover:text-[#e0af0c] duration-200">
                 <Link to="/">Home</Link>
               </motion.li>
-              <motion.li className="transition-all hover:text-[#e0af0c] duration-200">
+              <motion.li className="transition-all shadow-inner shadow-gray-300/20 w-full text-center py-1 rounded-lg hover:text-[#e0af0c] duration-200">
                 <Link to="/about">About</Link>
               </motion.li>
-              <motion.li className="transition-all hover:text-[#e0af0c] duration-200">
+              <motion.li className="transition-all shadow-inner shadow-gray-300/20 w-full text-center py-1 rounded-lg hover:text-[#e0af0c] duration-200">
                 <Link to="/dashboard">Dashboard</Link>
               </motion.li>
-              <motion.li className="transition-all hover:text-[#e0af0c] duration-200">
+              <motion.li className="transition-all shadow-inner shadow-gray-300/20 w-full text-center py-1 rounded-lg hover:text-[#e0af0c] duration-200">
                 <Link to="/contact">Contact</Link>
               </motion.li>
             </motion.ul>
@@ -116,7 +116,7 @@ export default function DummyHomePage() {
                 >
                   <Code2 className="w-12 h-12 text-[#e0af0c]" />
                 </motion.div>
-                <span className="flex md:flex-row flex-col items-center justify-center">
+                <span className="flex lg:flex-row flex-col items-center justify-center">
                   Craft Your Dream <SparklesText text={"Portfolio"} />
                 </span>
                 <motion.div
