@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { ArrowRightCircle, Book, Code2, UserCircle, Menu } from "lucide-react";
+import {
+  ArrowRightCircle,
+  Book,
+  Code2,
+  UserCircle,
+  Menu,
+  X,
+} from "lucide-react";
 import BackgroundGrid from "./Components/BGGrid";
 import { AnimatedShinyText } from "./Components/ShinyText";
 import { SparklesText } from "./Components/Sparkle";
@@ -39,7 +46,7 @@ export default function DummyHomePage() {
 
             <div className="lg:hidden flex items-center">
               <button className="text-white" onClick={toggleMenu}>
-                <Menu size={24} />
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
             </div>
 
@@ -88,7 +95,7 @@ export default function DummyHomePage() {
             className="shadow-inner shadow-[#e0af0c] w-48 items-center justify-center flex py-2 rounded-full mb-4"
           >
             <AnimatedShinyText
-              className={"z-40 text-sm flex items-center gap-2 font-normal"}
+              className={"text-sm flex items-center gap-2 font-normal"}
             >
               Get Started <ArrowRightCircle className="w-6" />
             </AnimatedShinyText>
