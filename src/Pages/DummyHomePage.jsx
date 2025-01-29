@@ -3,7 +3,8 @@ import { ArrowRightCircle, Book, Code2, UserCircle } from "lucide-react";
 import BackgroundGrid from "./Components/BGGrid";
 import { AnimatedShinyText } from "./Components/ShinyText";
 import { SparklesText } from "./Components/Sparkle";
-import { motion } from "framer-motion";  
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom"
 
 export default function DummyHomePage() {
   return (
@@ -39,28 +40,28 @@ export default function DummyHomePage() {
               transition={{ delay: 0.6, duration: 1 }}
             >
               <motion.li
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 0.0 }}
                 className="transition-all duration-200"
               >
-                Home
+                <Link>Home</Link>
               </motion.li>
               <motion.li
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 0.0 }}
                 className="transition-all duration-200"
               >
-                About
+                <Link>About</Link>
               </motion.li>
               <motion.li
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 0.0 }}
                 className="transition-all duration-200"
               >
-                Dashboard
+                <Link>Dashboard</Link>
               </motion.li>
               <motion.li
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 0.0 }}
                 className="transition-all duration-200"
               >
-                Contact
+                <Link>Contact</Link>
               </motion.li>
             </motion.ul>
 
@@ -78,7 +79,6 @@ export default function DummyHomePage() {
 
       <div className="min-h-screen py-4 barlow bg-[#080808] flex items-center noise-container">
         <div className="container mt-20 flex flex-col items-center mx-auto px-4 py-16 relative">
- 
           <motion.div
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
