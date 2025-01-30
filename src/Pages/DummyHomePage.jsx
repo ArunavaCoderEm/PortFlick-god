@@ -125,8 +125,9 @@ export default function DummyHomePage() {
                   <Code2 className="w-12 h-12 text-[#e0af0c]" />
                 </motion.div>
                 <span className="flex lg:flex-row flex-col items-center justify-center">
-                  Craft Your Dream <SparklesText text={"Portfolio"} />
+                  Craft Your Dream <SparklesText text={"\u00A0Portfolio"} />
                 </span>
+
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}

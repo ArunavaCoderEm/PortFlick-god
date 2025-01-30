@@ -61,7 +61,7 @@ const SparklesText = ({
           } else {
             return { ...star, lifespan: star.lifespan - 0.1 };
           }
-        }),
+        })
       );
     };
 
@@ -73,7 +73,10 @@ const SparklesText = ({
 
   return (
     <div
-      className={cn("text-5xl md:text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-b from-gray-100 to-gray-500 mt-1 leading-tight", className)}
+      className={cn(
+        "text-5xl md:text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-b from-gray-100 to-gray-500 mt-1 leading-tight",
+        className
+      )}
       {...props}
       style={{
         "--sparkles-first-color": colors.first,
@@ -84,7 +87,7 @@ const SparklesText = ({
         {sparkles.map((sparkle) => (
           <Sparkle key={sparkle.id} {...sparkle} />
         ))}
-        <strong>{text}</strong>
+        <strong className="text-[#e0dfe6]">{text}</strong>
       </span>
     </div>
   );

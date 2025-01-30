@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useUser, SignOutButton } from "@clerk/clerk-react";
-import { Outlet } from 'react-router-dom';
-import NavBar from './Components/Navbar'; 
+import { Outlet } from "react-router-dom";
+import NavBar from "./Components/Navbar";
 import AddUser from "./Utils/AddUser";
-import Sidebar from './Components/Sidebar';
+import Sidebar from "./Components/Sidebar";
+import { motion } from "framer-motion";
 
 const Dashboard = () => {
   const { user } = useUser();
@@ -14,13 +15,13 @@ const Dashboard = () => {
     const handleResize = () => {
       setIsLargeScreen(window.innerWidth >= 1024); // Set the breakpoint for large screen
     };
-    
-    window.addEventListener('resize', handleResize); // Add event listener for resize
+
+    window.addEventListener("resize", handleResize); // Add event listener for resize
     handleResize(); // Set initial state based on current window size
 
     // Cleanup event listener on component unmount
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -36,14 +37,13 @@ const Dashboard = () => {
           isLargeScreen={isLargeScreen}
         />
 
-        
-        <div
+        <motion.div
           className={`flex-1 mt-[10px] p-4 transition-all duration-300  ${
-            isSidebarOpen || isLargeScreen ? 'lg:ml-[15%]' : 'ml-0'
+            isSidebarOpen || isLargeScreen ? "lg:ml-[15%]" : "ml-0"
           }`}
         >
           <Outlet />
-        </div>
+        </motion.div>
 
         {/* Mobile sidebar*/}
         {!isLargeScreen && (
@@ -59,7 +59,12 @@ const Dashboard = () => {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             ) : (
               <svg
@@ -69,15 +74,17 @@ const Dashboard = () => {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
               </svg>
             )}
           </button>
         )}
       </div>
-
-  
-
     </div>
   );
 };
