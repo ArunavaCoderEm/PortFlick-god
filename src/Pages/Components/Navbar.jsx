@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "@clerk/clerk-react";
-
+import { motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const navigate = useNavigate();
   const { isSignedIn } = useUser();
 
-  const handleGetStarted = async() => {
+  const handleGetStarted = async () => {
     if (isSignedIn) {
       navigate("/dashboard");
     } else {
@@ -17,76 +21,79 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-950 text-white px-4 py-4 sticky top-0 z-50">
-      <div className="container mx-auto flex items-center justify-between">
-        {/* Logo */}
-        <div className="text-2xl font-bold">My3DShowcase</div>
-
-
-        <div className="hidden md:flex flex-1 justify-center space-x-8">
-          <Link to="/" className="hover:text-purple-400">
-            Home
-          </Link>
-          <Link to="/about" className="hover:text-purple-400">
-            About
-          </Link>
-          <Link to="/artRoom" className="hover:text-purple-400">
-            Services
-          </Link>
-          <Link to="/" className="hover:text-purple-400">
-            Contact
-          </Link>
-        </div>
-
-        {/* Sign In Button for Desktop */}
-        <div className="hidden md:block">
-        <button
-          className="bg-gray-950 hover:bg-gray-950 text-white px-8 py-2 rounded-lg border border-purple-400 shadow-[0px_0px_14px_rgba(207,147,217,0.5)] hover:shadow-[0px_0px_24px_rgba(207,147,217,0.9)] hover:border-purple-300"
-          onClick={handleGetStarted}
+    <nav className="bg-transparent text-white sticky top-0 z-50">
+      <div className="flex justify-center">
+        <motion.nav
+          className="md:bg-[#1a1a1a]/70 bg-[#1a1a1a] md:backdrop-blur-sm fixed top-0 md:top-3 barlow w-full lg:w-[50rem] mx-auto py-4 rounded-lg shadow-lg z-[11] mb-10"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
         >
-          {isSignedIn ? "Dashboard" : "Sign In"}
-        </button>
-        </div>
+          <div className="flex justify-between items-center px-8">
+            <motion.div
+              className="text-[#CE84CF] text-2xl font-bold flex items-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4, duration: 1 }}
+            >
+              <img
+                src="./logo.jpg"
+                alt="logo"
+                className="w-7 object-cover rounded-full"
+              />
+              ortFlick
+            </motion.div>
 
-        {/* Mobile Menu Button */}
-        <div className="md:hidden">
-          <button
-            className="text-gray-300 hover:text-white focus:outline-none focus:text-white"
-            onClick={() => {
-              const menu = document.getElementById("mobileMenu");
-              menu.classList.toggle("hidden");
-            }}
-          >
-            ☰
-          </button>
-        </div>
-      </div>
+            <div className="lg:hidden flex items-center">
+              <button className="text-white" onClick={toggleMenu}>
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
 
-        {/* Mobile Menu */}
-      <div
-        id="mobileMenu"
-        className="hidden md:hidden flex flex-col items-center space-y-4 mt-3 px-4"
-      >
-        <Link to="/" className="hover:text-gray-300">
-          Home
-        </Link>
-        <Link to="/about" className="hover:text-gray-300">
-          About
-        </Link>
-        <Link to="/artRoom" className="hover:text-gray-300">
-          Services
-        </Link>
-        <Link to="/" className="hover:text-gray-300">
-          Contact
-        </Link>
+            <motion.ul
+              className={`lg:flex gap-3 z-50 items-center cursor-pointer text-white ${
+                isMenuOpen
+                  ? "flex flex-col absolute bg-[#1a1a1a] left-0 top-16 w-full px-4 py-4 rounded-md shadow-lg"
+                  : "hidden lg:flex"
+              }`}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.6, duration: 1 }}
+            >
+              <motion.li className="transition-all shadow-inner shadow-gray-300/20 px-2 w-full text-center py-1 rounded-lg hover:text-[#CE84CF] duration-200">
+                <Link to="/">Home</Link>
+              </motion.li>
+              <motion.li className="transition-all shadow-inner shadow-gray-300/20 px-2 w-full text-center py-1 rounded-lg hover:text-[#CE84CF] duration-200">
+                <Link to="/about">About</Link>
+              </motion.li>
+              <motion.li className="transition-all shadow-inner shadow-gray-300/20 px-2 w-full text-center py-1 rounded-lg hover:text-[#CE84CF] duration-200 cursor-pointer">
+                <Link to="/about">Services</Link>
+              </motion.li>
+              <motion.li className="transition-all shadow-inner shadow-gray-300/20 px-2 w-full text-center py-1 rounded-lg hover:text-[#CE84CF] duration-200">
+                <Link to="/contact">Contact</Link>
+              </motion.li>
+              <motion.button
+                className="bg-white transition-all duration-200 hover:scale-95 text-black px-3 py-1 rounded-md font-semibold block md:hidden"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.8, duration: 1 }}
+                onClick={handleGetStarted}
+              >
+                {isSignedIn ? "Dashboard" : "Sign In"}
+              </motion.button>
+            </motion.ul>
 
-        {/* Sign In Button for Mobile */}
-        <button
-          className="bg-gray-950 hover:bg-gray-950 text-white px-8 py-2 rounded-lg border border-purple-400 shadow-[0px_0px_14px_rgba(207,147,217,0.5)] hover:shadow-[0px_0px_24px_rgba(207,147,217,0.9)] hover:border-purple-300"
-          onClick={handleGetStarted}
-        >
-          {isSignedIn ? "Dashboard" : "Sign In"}
-        </button>
+            <motion.button
+              className="bg-white transition-all duration-200 hover:scale-95 text-black px-3 py-1 rounded-md font-semibold hidden lg:block"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8, duration: 1 }}
+              onClick={handleGetStarted}
+            >
+              {isSignedIn ? "Dashboard" : "Sign In"}
+            </motion.button>
+          </div>
+        </motion.nav>
       </div>
     </nav>
   );

@@ -29,7 +29,7 @@ const Dashboard = () => {
     <div>
       <NavBar />
       <AddUser user={user} />
-      <div className="flex bg-gray-950 relative z-10">
+      <div className="flex bg-gray-950 pt-10  relative z-10">
         {/* Sidebar */}
         <Sidebar
           isSidebarOpen={isSidebarOpen}
