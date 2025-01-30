@@ -73,7 +73,7 @@ const Navbar = () => {
                 <Link to="/contact">Contact</Link>
               </motion.li>
               <motion.button
-                className="bg-white transition-all duration-200 hover:scale-95 text-black px-3 py-1 rounded-md font-semibold block md:hidden"
+                className="bg-white transition-all duration-200 hover:scale-95 text-black px-3 py-1 rounded-md font-semibold md:block lg:hidden"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8, duration: 1 }}

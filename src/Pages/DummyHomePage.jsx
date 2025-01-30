@@ -1,23 +1,25 @@
 import React, { useState } from "react";
-
-import {
-  ArrowRightCircle,
-  Book,
-  Code2,
-  UserCircle,
-  Menu,
-  X,
-} from "lucide-react";
+import { ArrowRightCircle, Book, Code2, UserCircle } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import BackgroundGrid from "./Components/BGGrid";
 import { AnimatedShinyText } from "./Components/ShinyText";
 import { SparklesText } from "./Components/Sparkle";
 import { motion } from "framer-motion";
 import NavBar from "./Components/Navbar";
+import { useUser } from "@clerk/clerk-react";
 
 export default function DummyHomePage() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isSignedIn } = useUser();
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const navigate = useNavigate();
+
+  const handleGetStarted = async () => {
+    if (isSignedIn) {
+      navigate("/dashboard");
+    } else {
+      await navigate("/login");
+    }
+  };
 
   return (
     <>
@@ -28,7 +30,7 @@ export default function DummyHomePage() {
           <motion.div
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 1 }}
+            transition={{ delay: 0.1, duration: 1 }}
             className="shadow-inner shadow-[#CE84CF] w-48 items-center justify-center flex py-2 rounded-full mb-4"
           >
             <AnimatedShinyText
@@ -102,9 +104,12 @@ export default function DummyHomePage() {
               transition={{ delay: 2, duration: 1 }}
               className="flex items-center justify-center gap-3"
             >
-              <button className="bg-gradient-to-b from-[#CE84CF] to-violet-500 text-white px-8 py-3 rounded-lg font-bold flex gap-2 items-center hover:opacity-90 transition-all duration-200">
+              <button
+                onClick={handleGetStarted}
+                className="bg-gradient-to-b from-[#CE84CF] to-violet-500 text-white px-8 py-3 rounded-lg font-bold flex gap-2 items-center hover:opacity-90 transition-all duration-200"
+              >
                 <UserCircle className="text-white w-6" />
-                Sign In
+                {isSignedIn ? "Dashboard" : "Sign In"}
               </button>
               <button className="border-[1px] border-white px-8 py-3 text-white font-bold rounded-lg hover:scale-95 flex items-center gap-2 transition-all duration-200">
                 <Book className="w-6" />
