@@ -1,10 +1,8 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import Footer from './Components/Footer'; 
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Footer from "./Components/Footer";
 import { Stars } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-
-
 
 export default function Template() {
   const navigate = useNavigate();
@@ -14,9 +12,8 @@ export default function Template() {
   };
 
   return (
-    <div className="flex flex-col gap-12 items-center justify-center bg-gray-950">
+    <div className="flex flex-col gap-12 items-center justify-center bg-[#080808]">
       <div className="h-auto lg:h-screen bg-cover mt-12 mb-6 lg:mb-12 bg-center grid grid-cols-1 lg:grid-cols-2 gap-6 items-center justify-center text-center p-4 rounded-md w-full lg:w-[100%]">
-        
         {/* Template 1 */}
         <Link to="/dashboard/template/prof" className="col-span-1 z-10">
           <div className="bg-white shadow-lg hover:shadow-2xl hover:scale-105 rounded-xl overflow-hidden transition duration-300 h-[350px] w-[80%] mx-auto flex flex-col">
@@ -33,7 +30,8 @@ export default function Template() {
                 Professional Email Template
               </h2>
               <p className="text-gray-500 text-sm md:text-sm">
-                Write a professional email template to your boss or colleagues to make your communication clear and efficient.
+                Write a professional email template to your boss or colleagues
+                to make your communication clear and efficient.
               </p>
             </div>
           </div>
@@ -55,7 +53,8 @@ export default function Template() {
                 Personal Email Template
               </h2>
               <p className="text-gray-500 text-sm md:text-sm">
-                Write a thoughtful and concise personal email to nurture connections and convey your message clearly.
+                Write a thoughtful and concise personal email to nurture
+                connections and convey your message clearly.
               </p>
             </div>
           </div>
@@ -77,7 +76,8 @@ export default function Template() {
                 Marketing Email Template
               </h2>
               <p className="text-gray-500 text-sm md:text-sm">
-                Write a compelling and targeted marketing email to grab attention and encourage customer engagement.
+                Write a compelling and targeted marketing email to grab
+                attention and encourage customer engagement.
               </p>
             </div>
           </div>
@@ -99,7 +99,8 @@ export default function Template() {
                 Follow-Up Email Template
               </h2>
               <p className="text-gray-500 text-sm md:text-sm">
-               Write a polite and professional follow-up email to prompt responses and keep projects moving forward
+                Write a polite and professional follow-up email to prompt
+                responses and keep projects moving forward
               </p>
             </div>
           </div>
@@ -121,10 +122,8 @@ export default function Template() {
           <Stars radius={100} count={1000} factor={4} fade speed={3} />
         </Canvas>
       </div>
-      
 
-      <Footer/>
+      <Footer />
     </div>
-
   );
 }

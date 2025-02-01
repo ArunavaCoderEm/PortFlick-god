@@ -5,6 +5,7 @@ export default {
     extend: {
       animation: {
         "shiny-text": "shiny-text 8s infinite",
+        slowBounce: "bounce 2s infinite",
       },
       keyframes: {
         "shiny-text": {

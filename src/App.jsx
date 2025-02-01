@@ -8,6 +8,7 @@ import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import Template from "./Pages/Template";
 import Account from "./Pages/UserAccount";
+import NotFound from "./Pages/PageNotFound";
 import DashboardHome from "./Pages/DashboardHome";
 import DummyHomePage from "./Pages/DummyHomePage";
 // import UserOnboardingPage from "./Pages/UserOnboarding";
@@ -17,6 +18,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
         <Route path="/login" element={<Login />} />
         {/* <Route path="/useronboarding" element={<UserOnboardingPage />} /> */}
         <Route path="/signup" element={<Signup />} />
