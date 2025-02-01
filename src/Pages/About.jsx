@@ -9,7 +9,7 @@ const AboutUs = () => {
     <div className="flex flex-col min-h-screen">
       <NavBar />
 
-      <section className="min-h-screen bg-gray-950 pt-20 py-10 px-4">
+      <section className="min-h-screen bg-[#080808] pt-20 py-10 px-4">
         <div className="text-center mt-10 mb-10">
           <h1 className="text-4xl font-bold bg-gradient-to-br from-white to-gray-100 bg-clip-text text-transparent mb-10">
             Welcome to My3DShowcase
@@ -23,7 +23,7 @@ const AboutUs = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Card 1 */}
-          <div className="bg-gray-950 shadow-lg rounded-lg p-6 mx-4 border border-gray-700">
+          <div className="bg-[#080808] shadow-lg rounded-lg p-6 mx-4 border border-gray-700">
             <h3 className="text-2xl flex justify-center font-semibold mb-6 text-gray-200">
               Our Team
             </h3>
@@ -34,7 +34,7 @@ const AboutUs = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="bg-gray-950 shadow-lg rounded-lg p-6 mx-4 border border-gray-700">
+          <div className="bg-[#080808] shadow-lg rounded-lg p-6 mx-4 border border-gray-700">
             <h3 className="text-2xl flex justify-center font-semibold mb-6 text-gray-200">
               Our Team
             </h3>
@@ -45,7 +45,7 @@ const AboutUs = () => {
           </div>
 
           {/* Card 3 */}
-          <div className="bg-gray-950 shadow-lg rounded-lg p-6 mx-4 border border-gray-700">
+          <div className="bg-[#080808] shadow-lg rounded-lg p-6 mx-4 border border-gray-700">
             <h3 className="text-2xl flex justify-center font-semibold mb-6 text-gray-200">
               Trusted by Many
             </h3>

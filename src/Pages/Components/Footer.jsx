@@ -7,11 +7,8 @@ const Footer = () => {
         <p className="text-gray-300 text-sm">
           Made with{" "}
           <HeartIcon className="inline-block w-4 h-4 text-purple-500 mx-1" /> by{" "}
-          <a
-            href="https://yourportfolio.com"
-            className="text-purple-500 hover:underline"
-          >
-            Priyanshu Dutta
+          <a href="" className="text-purple-500 hover:underline">
+            Jugadu
           </a>
         </p>
       </footer>
