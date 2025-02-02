@@ -12,6 +12,7 @@ import {
   animate,
 } from "framer-motion";
 import { useUser } from "@clerk/clerk-react";
+import Features from "../Sections/features-section"
 
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
 
@@ -110,7 +111,7 @@ const Home = () => {
     <>
       <BackgroundGrid />
       <NavBar />
-      <div className="min-h-screen py-4 barlow bg-[#080808] flex items-center noise-container">
+      <div className="min-h-screen py-4 barlow bg-[#080808] flex flex-col items-center noise-container">
         <div className="container mt-20 flex flex-col items-center mx-auto px-4 py-16 relative">
           <motion.div
             initial={{ opacity: 0, y: -30 }}
@@ -206,6 +207,7 @@ const Home = () => {
             </motion.div>
           </motion.div>
         </div>
+        <Features />
       </div>
     </>
   );
