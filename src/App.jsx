@@ -11,7 +11,7 @@ import Account from "./Pages/UserAccount";
 import NotFound from "./Pages/PageNotFound";
 import DashboardHome from "./Pages/DashboardHome";
 import DummyHomePage from "./Pages/DummyHomePage";
-// import UserOnboardingPage from "./Pages/UserOnboarding";
+import UserOnboardingPage from "./Pages/Onboarding";
 
 const App = () => {
   return (
@@ -20,7 +20,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/login" element={<Login />} />
-        {/* <Route path="/useronboarding" element={<UserOnboardingPage />} /> */}
+        <Route path="/useronboarding" element={<UserOnboardingPage />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/about" element={<About />} />
         <Route path="/dummyhome" element={<DummyHomePage />} />
