@@ -33,26 +33,33 @@
   font-style: normal;
 }
 
-.noise-container {
+.myshadow {
   position: relative;
-  overflow: hidden;
+  z-index: 10;
+  width: 100%;
+  border-radius: inherit;
 }
 
-.noise-container::before {
+.shadow-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  box-shadow: 0 0 250px 10px purple;
+  z-index: 11;
+  pointer-events: none;
+}
+
+.relative::after {
   content: "";
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  opacity: 0.1;
-  animation: noise 28s infinite linear;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 1) 100%);
+  z-index: 10;
   pointer-events: none;
-  z-index: 1;
-}
-
-.content-container {
-  position: relative;
-  z-index: 2;
 }
