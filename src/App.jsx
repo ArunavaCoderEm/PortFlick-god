@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
-import ArtRoom from "./Pages/ArtRoom";
 import Dashboard from "./Pages/Dashboard";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
@@ -30,7 +29,6 @@ const App = () => {
           <Route path="/dashboard/template" element={<Template />} />
           <Route path="/dashboard/account" element={<Account />} />
         </Route>
-        <Route path="/artRoom" element={<ArtRoom />} />
       </Routes>
     </Router>
   );

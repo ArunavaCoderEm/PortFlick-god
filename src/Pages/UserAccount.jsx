@@ -32,7 +32,9 @@ const Account = () => {
           {/* Created At */}
           <div className="flex justify-between items-center border-b pb-2">
             <span className="font-medium">Account Created:</span>
-            <span>{new Date(user?.createdAt).toLocaleDateString() || "N/A"}</span>
+            <span>
+              {new Date(user?.createdAt).toLocaleDateString() || "N/A"}
+            </span>
           </div>
         </div>
 
