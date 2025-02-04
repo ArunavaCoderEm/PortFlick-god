@@ -1,26 +1,30 @@
-const BackgroundGrid = ({
-  color = 'gray',
-  cellSize = '25px',
-  strokeWidth = '3px',
+import React, { useEffect, useState } from "react";
+
+const BackgroundStars = ({
+  numStars = 170, 
+  color = "white",
   className,
   fade = true,
   ...props
 }) => {
-  const svg = `
-    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' stroke='${color}' stroke-width='${strokeWidth}' fill-opacity='0.4' >
-      <path d='M 100 0 L 100 200'/>
-      <path d='M 0 100 L 200 100'/>
-    </svg>
-  `
-  const svgDataUrl = `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`
+  const [stars, setStars] = useState([]);
+
+  useEffect(() => {
+    const generateStars = () => {
+      return Array.from({ length: numStars }, () => ({
+        x: Math.random() * 100, 
+        y: Math.random() * 100, 
+        size: Math.random() * 2 + 0.5, 
+        delay: Math.random() * 5, 
+      }));
+    };
+    setStars(generateStars());
+  }, [numStars]);
 
   return (
     <div
-      className={`pointer-events-none opacity-50 z-10 absolute inset-0 left-0 top-0 flex h-full w-full ${className}`}
+      className={`pointer-events-none absolute inset-0 w-full h-full ${className}`}
       style={{
-        backgroundImage: `url("${svgDataUrl}")`,
-        backgroundRepeat: 'repeat',
-        backgroundSize: cellSize,
         maskImage: fade
           ? `radial-gradient(ellipse at top, white, transparent 70%)`
           : undefined,
@@ -29,8 +33,23 @@ const BackgroundGrid = ({
           : undefined,
       }}
       {...props}
-    ></div>
-  )
-}
+    >
+      {stars.map((star, index) => (
+        <div
+          key={index}
+          className="absolute rounded-full animate-twinkle"
+          style={{
+            width: `${star.size}px`,
+            height: `${star.size}px`,
+            backgroundColor: color,
+            top: `${star.y}%`,
+            left: `${star.x}%`,
+            animationDelay: `${star.delay}s`,
+          }}
+        ></div>
+      ))}
+    </div>
+  );
+};
 
-export default BackgroundGrid
+export default BackgroundStars;
