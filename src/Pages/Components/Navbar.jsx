@@ -24,7 +24,7 @@ const Navbar = () => {
     <nav className="bg-transparent text-white sticky top-0 z-50">
       <div className="flex justify-center">
         <motion.nav
-          className="md:bg-[#1a1a1a]/70 bg-[#1a1a1a] md:backdrop-blur-sm fixed top-0 md:top-3 barlow w-full lg:w-[50rem] mx-auto py-4 rounded-lg shadow-lg z-[11] mb-10"
+          className="md:bg-[#1a1a1a]/90 bg-[#1a1a1a] md:backdrop-blur-sm fixed top-0 md:top-3 barlow w-full lg:w-[50rem] mx-auto py-4 rounded-lg shadow-lg z-[11] mb-10"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
