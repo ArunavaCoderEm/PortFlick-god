@@ -13,6 +13,7 @@ import {
 } from "framer-motion";
 import { useUser } from "@clerk/clerk-react";
 import Features from "../Sections/features-section";
+import { BorderBeam } from "./Components/BorderBeam";
 
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
 
@@ -42,8 +43,8 @@ const Home = () => {
     <>
       <BackgroundGrid />
       <NavBar />
-      <div className="min-h-screen py-4 barlow bg-[#000] flex flex-col items-center">
-        <div className="container mt-20 flex flex-col items-center mx-auto px-4 py-16 relative">
+      <div className="py-4 barlow bg-[#000]">
+        <div className="mt-20 flex flex-col items-center mx-auto px-4 py-16 relative">
           <motion.div
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -133,19 +134,22 @@ const Home = () => {
                 Docs
               </button>
             </motion.div>
-            <div className="relative flex justify-center items-center min-h-screen bg-black">
-              <div className="relative w-[90%] max-w-5xl">
-                <img
-                  src="/pic.webp"
-                  alt="Showcase"
-                  className="myshadow relative z-10 w-full rounded-lg"
-                />
-                <div className="shadow-overlay absolute inset-0"></div>
+            <div className="relative mt-2 md:mt-5 flex flex-col items-center justify-center w-full px-4 py-8">
+              <div className="relative md:h-[400px] h-auto w-full md:w-[90%] flex-col items-center justify-center overflow-hidden rounded-lg">
+                <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
+                  <img
+                    src="/pic.webp"
+                    alt="Showcase"
+                    className="myshadow relative z-10 w-full h-auto rounded-2xl"
+                  />
+                  <div className="shadow-overlay absolute inset-0"></div>
+                </span>
+                <BorderBeam size={250} duration={12} delay={9} />
               </div>
-            </div>  
+            </div>
           </motion.div>
         </div>
-        {/* <Features /> */}
+        <Features />
       </div>
     </>
   );
