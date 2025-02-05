@@ -11,6 +11,7 @@ import NotFound from "./Pages/PageNotFound";
 import DashboardHome from "./Pages/DashboardHome";
 import DummyHomePage from "./Pages/DummyHomePage";
 import UserOnboardingPage from "./Pages/Onboarding";
+import Footer from "./Pages/Components/Footer";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/dashboard/account" element={<Account />} />
         </Route>
       </Routes>
+      <Footer />
     </Router>
   );
 };
