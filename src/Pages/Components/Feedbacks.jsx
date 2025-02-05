@@ -3,6 +3,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "../../components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import {
@@ -50,7 +52,7 @@ export const Feedbacks = () => {
         opts={{
           align: "start",
         }}
-        className="w-full px-5 flex items-center justify-center"
+        className="w-full max-w-6xl px-5 mb-10 flex items-center justify-center"
       >
         <CarouselContent>
           {messages.map((message, index) => (
@@ -76,6 +78,8 @@ export const Feedbacks = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
       </Carousel>
     </>
   );
