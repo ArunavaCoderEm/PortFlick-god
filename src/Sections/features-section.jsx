@@ -13,31 +13,41 @@ const Features = () => {
       title: "Seamless Authentication",
       description:
         "Plan it, create it, launch it. Collaborate seamlessly with all the organization and hit your marketing goals every month with our marketing plan.",
-      icon: <User className="w-10 h-10 fill-purple-500 rounded-full text-white" />,
+      icon: (
+        <User className="w-10 h-10 fill-purple-500 rounded-full text-white" />
+      ),
     },
     {
       title: "Portfolio Templates",
       description:
         "Protect your organization, devices and stay compliant with our structured workflows and custom permissions made for you.",
-      icon: <AppWindow className="w-10 h-10 fill-purple-500 rounded-full text-white" />,
+      icon: (
+        <AppWindow className="w-10 h-10 fill-purple-500 rounded-full text-white" />
+      ),
     },
     {
       title: "Modern Design",
       description:
         "Protect your organization, devices and stay compliant with our structured workflows and custom permissions made for you.",
-      icon: <AlignCenterHorizontalIcon className="w-10 h-10 fill-purple-500 rounded-full text-white" />,
+      icon: (
+        <AlignCenterHorizontalIcon className="w-10 h-10 fill-purple-500 rounded-full text-white" />
+      ),
     },
     {
       title: "Modern Design",
       description:
         "Protect your organization, devices and stay compliant with our structured workflows and custom permissions made for you.",
-      icon: <AlignCenterHorizontalIcon className="w-10 h-10 fill-purple-500 rounded-full text-white" />,
+      icon: (
+        <AlignCenterHorizontalIcon className="w-10 h-10 fill-purple-500 rounded-full text-white" />
+      ),
     },
     {
       title: "Modern Design",
       description:
         "Protect your organization, devices and stay compliant with our structured workflows and custom permissions made for you.",
-      icon: <AlignCenterHorizontalIcon className="w-10 h-10 fill-purple-500 rounded-full text-white" />,
+      icon: (
+        <AlignCenterHorizontalIcon className="w-10 h-10 fill-purple-500 rounded-full text-white" />
+      ),
     },
   ];
 
@@ -57,18 +67,19 @@ const Features = () => {
       <div className="text-white gap-4 grid md:grid-cols-1 grid-cols-1 lg:grid-cols-3 p-3">
         {mapfeature.slice(0, 3).map((item, index) => {
           return (
-            <div key={index} className="rounded-lg px-4 py-3 bg-gradient-to-b from-pink-700 shadow shadow-purple-900 to-pink-900">
-              <span className="mb-1 rounded-full">
-                {item.icon}
-              </span>
-              <div>
-                <h1 className="text-white mt-5 font-semibold text-xl md:text-2xl">
-                  {item.title}
-                </h1>
-                <p className="text-white font-normal text-md md:text-lg mt-2">
-                  {item.description}
-                </p>
-              </div>
+            <div
+              key={index}
+              className="relative rounded-lg border-[1px] border-pink-500/40 bg-black/90 p-5 overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-tl from-purple-500/20 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+
+              <span className="mb-3 text-purple-500 text-2xl">{item.icon}</span>
+              <h1 className="text-white font-semibold text-xl md:text-2xl">
+                {item.title}
+              </h1>
+              <p className="text-gray-300 font-normal text-md md:text-lg mt-2">
+                {item.description}
+              </p>
             </div>
           );
         })}
@@ -77,13 +88,18 @@ const Features = () => {
       <div className="text-white gap-4 flex md:flex-row flex-col justify-center p-3">
         {mapfeature.slice(3, 5).map((item, index) => {
           return (
-            <div key={index} className="rounded-lg md:max-w-[50vw] w-full lg:max-w-[33.3vw] px-4 py-3 bg-gradient-to-b from-pink-700 shadow shadow-purple-900 to-pink-900">
-              <span className="mb-1 rounded-full">{item.icon}</span>
+            <div
+              key={index}
+              className="relative rounded-lg border-[0.2px] border-pink-500/40 bg-black/90 p-5 overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-tl from-purple-500/20 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+
+              <span className="mb-1 text-purple-500 text-2xl">{item.icon}</span>
               <div>
                 <h1 className="text-white mt-5 font-semibold text-xl md:text-2xl">
                   {item.title}
                 </h1>
-                <p className="text-white font-normal text-md md:text-lg mt-2">
+                <p className="text-gray-300 font-normal text-md md:text-lg mt-2">
                   {item.description}
                 </p>
               </div>
