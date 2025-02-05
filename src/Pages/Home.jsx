@@ -149,7 +149,7 @@ const Home = () => {
             </div>
           </motion.div>
         </div>
-        {/* <Features /> */}
+        <Features />
       </div>
     </>
   );
