@@ -52,7 +52,7 @@ const Features = () => {
   ];
 
   return (
-    <div className="barlow px-2 py-1">
+    <div className="barlow px-2 py-1 -mt-3">
       <motion.h1
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}
