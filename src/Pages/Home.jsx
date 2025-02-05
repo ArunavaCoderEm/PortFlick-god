@@ -4,15 +4,27 @@ import { useNavigate } from "react-router-dom";
 import BackgroundGrid from "./Components/BGGrid";
 import { AnimatedShinyText } from "./Components/ShinyText";
 import { SparklesText } from "./Components/Sparkle";
-import { ArrowRightCircle, Book, Code2, UserCircle } from "lucide-react";
 import {
-  useMotionTemplate,
+  ArrowRightCircle,
+  Book,
+  Code2,
+  ShieldQuestion,
+  UserCircle,
+} from "lucide-react";
+import {
   useMotionValue,
   motion,
   animate,
 } from "framer-motion";
 import { useUser } from "@clerk/clerk-react";
 import Features from "../Sections/features-section";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../components/ui/accordion";
+
 import { BorderBeam } from "./Components/BorderBeam";
 
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
@@ -29,6 +41,29 @@ const Home = () => {
       await navigate("/login");
     }
   };
+
+  const faqs = [
+    {
+      id: "item-1",
+      question: "Is it accessible?",
+      answer: "Yes. It adheres to the WAI-ARIA design pattern.",
+    },
+    {
+      id: "item-2",
+      question: "Is it responsive?",
+      answer: "Yes, it works seamlessly across all devices.",
+    },
+    {
+      id: "item-3",
+      question: "Can I customize it?",
+      answer: "Absolutely! You can tweak it to match your style.",
+    },
+    {
+      id: "item-4",
+      question: "Does it support animations?",
+      answer: "Yes, you can integrate animations easily.",
+    },
+  ];
 
   useEffect(() => {
     animate(color, COLORS_TOP, {
@@ -150,6 +185,30 @@ const Home = () => {
           </motion.div>
         </div>
         <Features />
+        <div className="bg-[#101010] mt-10 flex flex-col items-center justify-center px-3 py-6">
+          <motion.h1
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.1, duration: 1 }}
+            className="text-2xl md:text-4xl font-extrabold flex items-center justify-center gap-2 text-center bg-clip-text text-transparent bg-gradient-to-b from-gray-100 to-gray-500 mb-6 leading-tight"
+          >
+            <ShieldQuestion size={24} className="text-white" />
+            Frequently Asked Questions
+            <ShieldQuestion size={24} className="text-white" />
+          </motion.h1>
+          <Accordion
+            type="single"
+            collapsible
+            className="w-full px-7 py-2 barlow"
+          >
+            {faqs.map((faq) => (
+              <AccordionItem key={faq.id} value={faq.id}>
+                <AccordionTrigger>{faq.question}</AccordionTrigger>
+                <AccordionContent>{faq.answer}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
       </div>
     </>
   );
