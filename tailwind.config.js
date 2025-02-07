@@ -1,30 +1,16 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-    darkMode: ["class"],
-    content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
+module.exports = {
+  darkMode: ["class"],
+  content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
   theme: {
   	extend: {
   		animation: {
-  			'shiny-text': 'shiny-text 8s infinite',
-  			slowBounce: 'bounce 2s infinite',
-  			'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear',
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+  			'shiny-text': 'shiny-text 3s infinite',
+  			'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear'
   		},
   		keyframes: {
-  			'shiny-text': {
-  				'0%, 90%, 100%': {
-  					'background-position': 'calc(-100% - var(--shiny-width)) 0'
-  				},
-  				'30%, 60%': {
-  					'background-position': 'calc(100% + var(--shiny-width)) 0'
-  				}
-  			},
-  			'border-beam': {
-  				'100%': {
-  					'offset-distance': '100%'
-  				}
-  			},
   			'accordion-down': {
   				from: {
   					height: '0'
@@ -39,6 +25,19 @@ export default {
   				},
   				to: {
   					height: '0'
+  				}
+  			},
+  			'shiny-text': {
+  				'0%, 90%, 100%': {
+  					'background-position': '-200% 0'
+  				},
+  				'30%, 60%': {
+  					'background-position': '200% 0'
+  				}
+  			},
+  			'border-beam': {
+  				'100%': {
+  					'offset-distance': '100%'
   				}
   			}
   		},
@@ -87,6 +86,16 @@ export default {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
+  			},
+  			sidebar: {
+  				DEFAULT: 'hsl(var(--sidebar-background))',
+  				foreground: 'hsl(var(--sidebar-foreground))',
+  				primary: 'hsl(var(--sidebar-primary))',
+  				'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
+  				accent: 'hsl(var(--sidebar-accent))',
+  				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
+  				border: 'hsl(var(--sidebar-border))',
+  				ring: 'hsl(var(--sidebar-ring))'
   			}
   		}
   	}
