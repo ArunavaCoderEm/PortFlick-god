@@ -84,9 +84,9 @@ export const mapfeature: MapFeature[] = [
     icon: AlignCenterHorizontalIcon,
   },
   {
-    title: "Modern Design",
+    title: "Perfect Analytics",
     description:
-      "Ensure your organization stays compliant and secure with structured workflows and custom permissions tailored for you.",
+      "You can analyze how many click your portfolio got, along with device and location.",
     icon: AlignCenterHorizontalIcon,
   },
   {
