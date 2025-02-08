@@ -112,3 +112,9 @@ export interface TeamMember {
   role: string;
   image: string;
 }
+
+export interface Service {
+  title: string;
+  description: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+}

@@ -5,11 +5,17 @@ import {
   NavData,
   NavigationItem,
   navlinkProps,
+  Service,
   SocialItem,
   TeamMember,
 } from "@/types/types";
 import { Github, Linkedin, Twitter } from "lucide-react";
-import { User, AppWindow, AlignCenterHorizontalIcon } from "lucide-react";
+import {
+  User,
+  AppWindow,
+  AlignCenterHorizontalIcon,
+  Globe,
+} from "lucide-react";
 
 export const navLinks: navlinkProps[] = [
   { label: "Home", path: "/" },
@@ -198,5 +204,43 @@ export const teamMembers: TeamMember[] = [
     role: "Web Developer",
     image:
       "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+  },
+];
+
+export const services: Service[] = [
+  {
+    title: "Brand Identity",
+    description:
+      "We create unique and powerful brand identities that help companies achieve their goals and stand out amongst the competition.",
+    icon: Globe,
+  },
+  {
+    title: "Web Design",
+    description:
+      "We help companies craft captivating websites. Our designs tell stories and guide users, from vision to action.",
+    icon: Globe,
+  },
+  {
+    title: "Mobile Design",
+    description:
+      "We design mobile and responsive web experiences, allowing users to interact with apps in a way that feels effortless.",
+    icon: Globe,
+  },
+  {
+    title: "Illustration",
+    description:
+      "We create visual stories that help explain your mission and vision.",
+    icon: Globe,
+  },
+  {
+    title: "Iconography",
+    description: "Icons that support the brand and help simplify your message.",
+    icon: Globe,
+  },
+  {
+    title: "Development",
+    description:
+      "Solve any design challenge in Webflow. If you can dream it, we can build it.",
+    icon: Globe,
   },
 ];
