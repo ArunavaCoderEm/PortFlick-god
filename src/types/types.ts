@@ -118,3 +118,15 @@ export interface Service {
   description: string;
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 }
+
+export interface ContactOption {
+  id: string;
+  label: string;
+}
+
+export type ContactInfo = {
+  title: string;
+  description: string;
+  subtext?: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+};

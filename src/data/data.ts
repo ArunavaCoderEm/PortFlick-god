@@ -1,4 +1,6 @@
 import {
+  ContactInfo,
+  ContactOption,
   FAQProps,
   MapFeature,
   messageProps,
@@ -9,12 +11,17 @@ import {
   SocialItem,
   TeamMember,
 } from "@/types/types";
-import { Github, Linkedin, Twitter } from "lucide-react";
 import {
+  Github,
+  Linkedin,
+  Twitter,
   User,
   AppWindow,
   AlignCenterHorizontalIcon,
   Globe,
+  MapPin,
+  Phone,
+  MessageCircle,
 } from "lucide-react";
 
 export const navLinks: navlinkProps[] = [
@@ -242,5 +249,35 @@ export const services: Service[] = [
     description:
       "Solve any design challenge in Webflow. If you can dream it, we can build it.",
     icon: Globe,
+  },
+];
+
+export const contactOptions: ContactOption[] = [
+  { id: "website", label: "Website design" },
+  { id: "ux", label: "Website design" },
+  { id: "ui", label: "Website design" },
+  { id: "app", label: "Website design" },
+  { id: "backend", label: "Website design" },
+  { id: "ml", label: "Website design" },
+];
+
+export const contactDetails: ContactInfo[] = [
+  {
+    title: "Call Us",
+    description: "Reach out to our team via phone.",
+    subtext: "+91 8481867003",
+    icon: Phone,
+  },
+  {
+    title: "Visit Our Site",
+    description: "Check out our website for more info.",
+    subtext: "www.abc.com",
+    icon: MapPin,
+  },
+  {
+    title: "Chat With Us",
+    description: "We're available 24/7 for support.",
+    subtext: "Live chat on our website",
+    icon: MessageCircle,
   },
 ];
