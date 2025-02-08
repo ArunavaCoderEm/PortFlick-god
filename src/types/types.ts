@@ -86,9 +86,9 @@ export interface MapFeature {
 }
 
 export interface messageProps {
-  title: string, 
-  content: string,
-  received: string
+  title: string;
+  content: string;
+  received: string;
 }
 
 export interface NavItem {
@@ -105,4 +105,10 @@ export interface NavSection {
 
 export interface NavData {
   navMain: NavSection[];
+}
+
+export interface TeamMember {
+  name: string;
+  role: string;
+  image: string;
 }

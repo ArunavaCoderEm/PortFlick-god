@@ -1,4 +1,13 @@
-import { FAQProps, MapFeature, messageProps, NavData, NavigationItem, navlinkProps, SocialItem } from "@/types/types";
+import {
+  FAQProps,
+  MapFeature,
+  messageProps,
+  NavData,
+  NavigationItem,
+  navlinkProps,
+  SocialItem,
+  TeamMember,
+} from "@/types/types";
 import { Github, Linkedin, Twitter } from "lucide-react";
 import { User, AppWindow, AlignCenterHorizontalIcon } from "lucide-react";
 
@@ -8,7 +17,6 @@ export const navLinks: navlinkProps[] = [
   { label: "Services", path: "/services" },
   { label: "Contact", path: "/contact" },
 ];
-
 
 export const navigation: {
   main: NavigationItem[];
@@ -35,7 +43,7 @@ export const navigation: {
     {
       name: "LinkedIn",
       href: "https://linkedin.com/in/ansub",
-      Icon: Linkedin
+      Icon: Linkedin,
     },
   ],
 };
@@ -62,7 +70,6 @@ export const faqs: FAQProps[] = [
     answer: "Yes, you can integrate animations easily.",
   },
 ];
-
 
 export const mapfeature: MapFeature[] = [
   {
@@ -172,3 +179,24 @@ export const data: NavData = {
     },
   ],
 };
+
+export const teamMembers: TeamMember[] = [
+  {
+    name: "Arunava Dutta",
+    role: "Web Developer",
+    image:
+      "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    name: "Priyanshu Dutta",
+    role: "Web Developer",
+    image:
+      "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    name: "Satyaki Dey",
+    role: "Web Developer",
+    image:
+      "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+  },
+];
