@@ -10,7 +10,7 @@ import { Separator } from "@/components/ui/separator";
 export default function ContactUs(): React.ReactNode {
   return (
     <div className="min-h-screen mt-10 bg-black text-gray-100 flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-10 bg-gray-900 rounded-2xl p-10 shadow-lg">
+      <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-10 bg-gray-950 rounded-2xl p-10 shadow-lg">
         <div className="space-y-10">
           <h2 className="text-3xl font-bold">Let's get in touch</h2>
           <Separator className="bg-gray-600" />
