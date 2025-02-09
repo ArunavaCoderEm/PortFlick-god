@@ -130,3 +130,11 @@ export type ContactInfo = {
   subtext?: string;
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 };
+
+export interface UserProps {
+  email?: string;
+  phone?: string;
+  username?: string;
+  avatar?: string;
+  clerkid?: string;
+}
