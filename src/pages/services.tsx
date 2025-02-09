@@ -7,7 +7,7 @@ export default function Services(): React.ReactNode {
     <div className="min-h-screen bg-[#000]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 pt-[100px]">
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-gray-300 to-gray-400 mb-6">
             Services We Provide
           </h1>
           <p className="text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">

@@ -26,7 +26,7 @@ import { MapFeature } from "@/types/types";
             return (
               <div
                 key={index}
-                className="relative rounded-lg border-[1px] border-pink-500/40 bg-black/90 p-5 overflow-hidden"
+                className="relative rounded-lg border-[1px] opacity-80 hover:opacity-100 transition-all duration-200  border-pink-500/40 bg-black/90 p-5 overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-tl from-purple-500/20 via-transparent to-transparent opacity-50 pointer-events-none"></div>
   
@@ -47,7 +47,7 @@ import { MapFeature } from "@/types/types";
             return (
               <div
                 key={index}
-                className="relative rounded-lg border-[0.2px] border-pink-500/40 bg-black/90 p-5 overflow-hidden"
+                className="relative rounded-lg border-[1px] opacity-80 hover:opacity-100 transition-all duration-200 border-pink-500/40 bg-black/90 p-5 overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-tl from-purple-500/20 via-transparent to-transparent opacity-50 pointer-events-none"></div>
   
