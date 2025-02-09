@@ -29,11 +29,9 @@ export function AppSidebar():React.ReactNode {
 
   const { user } = useUser();
 
-  console.log(user);
-
   return (
     <Sidebar>
-      <SidebarHeader className="lg:mt-5 mt-24">
+      <SidebarHeader className="xl:mt-10 mt-24">
 
         <form>
           <SidebarGroup className="py-0">
