@@ -3,10 +3,10 @@ import React from "react";
 
 export default function AboutUs(): React.ReactNode {
   return (
-    <div className="min-h-screen bg-[#000]">
+    <div className="min-h-screen mt-7 bg-[#000]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 pt-[100px]">
         <div className="text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-gray-300 to-gray-400 z-20 mb-6">
             We bring a wealth of experience
             <br />
             from a wide range of backgrounds
