@@ -5,6 +5,9 @@ import Dashboard from "@/pages/dashboard";
 import Home from "@/pages/home";
 import Login from "@/pages/login";
 import Signup from "@/pages/sign-up";
+import About from "@/pages/about-us";
+import Contact from "@/pages/contact-us";
+import Services from "@/pages/services";
 import DashboardLayout from "@/utils/dashboard-layout";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
@@ -19,6 +22,9 @@ export default function MainRoute(): React.ReactNode {
           <Route path={"/"} element={<Home />} />
           <Route path={"/login"} element={<Login />} />
           <Route path={"/signup"} element={<Signup />} />
+          <Route path={"/about"} element={<About />} />
+          <Route path={"/contact"} element={<Contact />} />
+          <Route path={"/services"} element={<Services />} />
           <Route path="dashboard" element={<DashboardLayout />}>
             <Route index element={<Dashboard />} />
           </Route>

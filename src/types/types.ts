@@ -86,9 +86,9 @@ export interface MapFeature {
 }
 
 export interface messageProps {
-  title: string, 
-  content: string,
-  received: string
+  title: string;
+  content: string;
+  received: string;
 }
 
 export interface NavItem {
@@ -105,4 +105,36 @@ export interface NavSection {
 
 export interface NavData {
   navMain: NavSection[];
+}
+
+export interface TeamMember {
+  name: string;
+  role: string;
+  image: string;
+}
+
+export interface Service {
+  title: string;
+  description: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+}
+
+export interface ContactOption {
+  id: string;
+  label: string;
+}
+
+export type ContactInfo = {
+  title: string;
+  description: string;
+  subtext?: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+};
+
+export interface UserProps {
+  email?: string;
+  phone?: string;
+  username?: string;
+  avatar?: string;
+  clerkid?: string;
 }

@@ -1,6 +1,28 @@
-import { FAQProps, MapFeature, messageProps, NavData, NavigationItem, navlinkProps, SocialItem } from "@/types/types";
-import { Github, Linkedin, Twitter } from "lucide-react";
-import { User, AppWindow, AlignCenterHorizontalIcon } from "lucide-react";
+import {
+  ContactInfo,
+  ContactOption,
+  FAQProps,
+  MapFeature,
+  messageProps,
+  NavData,
+  NavigationItem,
+  navlinkProps,
+  Service,
+  SocialItem,
+  TeamMember,
+} from "@/types/types";
+import {
+  Github,
+  Linkedin,
+  Twitter,
+  User,
+  AppWindow,
+  AlignCenterHorizontalIcon,
+  Globe,
+  MapPin,
+  Phone,
+  MessageCircle,
+} from "lucide-react";
 
 export const navLinks: navlinkProps[] = [
   { label: "Home", path: "/" },
@@ -8,7 +30,6 @@ export const navLinks: navlinkProps[] = [
   { label: "Services", path: "/services" },
   { label: "Contact", path: "/contact" },
 ];
-
 
 export const navigation: {
   main: NavigationItem[];
@@ -35,7 +56,7 @@ export const navigation: {
     {
       name: "LinkedIn",
       href: "https://linkedin.com/in/ansub",
-      Icon: Linkedin
+      Icon: Linkedin,
     },
   ],
 };
@@ -62,7 +83,6 @@ export const faqs: FAQProps[] = [
     answer: "Yes, you can integrate animations easily.",
   },
 ];
-
 
 export const mapfeature: MapFeature[] = [
   {
@@ -172,3 +192,92 @@ export const data: NavData = {
     },
   ],
 };
+
+export const teamMembers: TeamMember[] = [
+  {
+    name: "Arunava Dutta",
+    role: "Web Developer",
+    image:
+      "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    name: "Priyanshu Dutta",
+    role: "Web Developer",
+    image:
+      "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    name: "Satyaki Dey",
+    role: "Web Developer",
+    image:
+      "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+  },
+];
+
+export const services: Service[] = [
+  {
+    title: "Brand Identity",
+    description:
+      "We create unique and powerful brand identities that help companies achieve their goals and stand out amongst the competition.",
+    icon: Globe,
+  },
+  {
+    title: "Web Design",
+    description:
+      "We help companies craft captivating websites. Our designs tell stories and guide users, from vision to action.",
+    icon: Globe,
+  },
+  {
+    title: "Mobile Design",
+    description:
+      "We design mobile and responsive web experiences, allowing users to interact with apps in a way that feels effortless.",
+    icon: Globe,
+  },
+  {
+    title: "Illustration",
+    description:
+      "We create visual stories that help explain your mission and vision.",
+    icon: Globe,
+  },
+  {
+    title: "Iconography",
+    description: "Icons that support the brand and help simplify your message.",
+    icon: Globe,
+  },
+  {
+    title: "Development",
+    description:
+      "Solve any design challenge in Webflow. If you can dream it, we can build it.",
+    icon: Globe,
+  },
+];
+
+export const contactOptions: ContactOption[] = [
+  { id: "website", label: "Website design" },
+  { id: "ux", label: "Website design" },
+  { id: "ui", label: "Website design" },
+  { id: "app", label: "Website design" },
+  { id: "backend", label: "Website design" },
+  { id: "ml", label: "Website design" },
+];
+
+export const contactDetails: ContactInfo[] = [
+  {
+    title: "Call Us",
+    description: "Reach out to our team via phone.",
+    subtext: "+91 8481867003",
+    icon: Phone,
+  },
+  {
+    title: "Visit Our Site",
+    description: "Check out our website for more info.",
+    subtext: "www.abc.com",
+    icon: MapPin,
+  },
+  {
+    title: "Chat With Us",
+    description: "We're available 24/7 for support.",
+    subtext: "Live chat on our website",
+    icon: MessageCircle,
+  },
+];
