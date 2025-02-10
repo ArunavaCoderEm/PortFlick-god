@@ -7,6 +7,7 @@ import {
   NavData,
   NavigationItem,
   navlinkProps,
+  Project,
   Service,
   SocialItem,
   TeamMember,
@@ -279,5 +280,57 @@ export const contactDetails: ContactInfo[] = [
     description: "We're available 24/7 for support.",
     subtext: "Live chat on our website",
     icon: MessageCircle,
+  },
+];
+
+export const projects: Project[] = [
+  {
+    name: "Portfolio Website",
+    thumbnail:
+      "https://images.unsplash.com/photo-1487014679447-9f8336841d58?q=80&w=1000",
+    createdAt: "2024-01-20",
+    branch: "main",
+    status: "active",
+    metrics: {
+      views: 1200,
+      uniqueVisitors: 567,
+    },
+  },
+  {
+    name: "E-commerce Dashboard",
+
+    thumbnail:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000",
+    createdAt: "2024-01-15",
+    branch: "development",
+    status: "active",
+    metrics: {
+      views: 2500,
+      uniqueVisitors: 890,
+    },
+  },
+  {
+    name: "Task Management App",
+    thumbnail:
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000",
+    createdAt: "2024-01-10",
+    branch: "feature/tasks",
+    status: "inactive",
+    metrics: {
+      views: 800,
+      uniqueVisitors: 245,
+    },
+  },
+  {
+    name: "Weather Forecast",
+    thumbnail:
+      "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?q=80&w=1000",
+    createdAt: "2024-01-05",
+    branch: "main",
+    status: "active",
+    metrics: {
+      views: 3100,
+      uniqueVisitors: 1200,
+    },
   },
 ];
