@@ -1,3 +1,5 @@
+import { PieChartComponent } from "@/components/my-component/pie-chart-stats";
+import { StatsBar } from "@/components/my-component/stats-bar";
 import { Skeleton } from "@/components/ui/skeleton";
 import React, { useEffect, useState } from "react";
 import { MoreHorizontal } from "lucide-react";
@@ -119,6 +121,8 @@ export default function Dashboard(): React.ReactNode {
           </div>
         </Card>
       ))}
+      <PieChartComponent />
+      <StatsBar />
     </div>
   );
 }
