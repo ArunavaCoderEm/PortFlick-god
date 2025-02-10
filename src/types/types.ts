@@ -138,3 +138,15 @@ export interface UserProps {
   avatar?: string;
   clerkid?: string;
 }
+
+export interface ChartProps {
+  month : string,
+  desktop: number,
+  mobile: number,
+}
+
+export interface PiePropsInterface {
+  browser : string,
+  visitors: number,
+  fill: string,
+}
