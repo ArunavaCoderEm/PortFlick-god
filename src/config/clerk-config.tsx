@@ -18,6 +18,14 @@ export default function ClerkConfig({
       <ClerkProvider
         appearance={{
           baseTheme: dark,
+          variables: {
+            colorBackground: "#000",
+            colorInputText: "#fff",
+            fontFamily: "barlow",
+          },
+          elements: {
+            formButtonPrimary: "bg-purple-700 text-white border-none ring-none outline-none hover:bg-purple-800 transition-all duration-200",
+          }
         }}
         publishableKey={PUBLISHABLE_KEY}
         routerPush={(to: string) => navigate(to)}
