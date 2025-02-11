@@ -10,12 +10,16 @@ import Contact from "@/pages/contact-us";
 import Services from "@/pages/services";
 import DashboardLayout from "@/utils/dashboard-layout";
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
+import Template1 from "@/template1/template1";
 
 export default function MainRoute(): React.ReactNode {
+  const location = useLocation();
+  const hideNavbar = location.pathname === "/template1";
+
   return (
     <div className="barlow">
-      <Navbar />
+      {!hideNavbar && <Navbar />}
       <BackgroundStars />
       <div className="min-h-[75vh]">
         <Routes>
@@ -25,6 +29,7 @@ export default function MainRoute(): React.ReactNode {
           <Route path={"/about"} element={<About />} />
           <Route path={"/contact"} element={<Contact />} />
           <Route path={"/services"} element={<Services />} />
+          <Route path={"/template1"} element={<Template1 />} />
           <Route path="dashboard" element={<DashboardLayout />}>
             <Route index element={<Dashboard />} />
           </Route>
