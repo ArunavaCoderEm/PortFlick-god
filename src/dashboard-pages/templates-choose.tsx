@@ -1,5 +1,3 @@
-import React from "react";
-import { Palette, Camera, Code, Briefcase } from "lucide-react";
 import { templates } from "@/data/data";
 
 function TemplateChoose() {

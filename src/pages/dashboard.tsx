@@ -1,17 +1,13 @@
 import { Skeleton } from "@/components/ui/skeleton";
 import React, { useEffect, useState } from "react";
-import { projects } from "@/data/data";
-import { Project } from "@/types/types";
 import { Outlet } from "react-router-dom";
 
-export default function Dashboard(): React.ReactNode {
+const Dashboard: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
-  const [projectData, setProjectData] = useState<Project[]>([]);
 
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
-      setProjectData(projects);
       setLoading(false);
     }, 2000);
   }, []);
@@ -29,8 +25,10 @@ export default function Dashboard(): React.ReactNode {
   }
 
   return (
-    <div className="px-3 py-4 ">
+    <div className="px-3 py-4">
       <Outlet />
     </div>
   );
-}
+};
+
+export default Dashboard;
