@@ -162,3 +162,13 @@ export interface PiePropsInterface {
   visitors: number;
   fill: string;
 }
+
+export interface TemplateCard {
+  id: string;
+  title: string;
+  description: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  demoUrl: string;
+  bgColor: string;
+  image: string;
+}

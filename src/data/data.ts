@@ -13,6 +13,7 @@ import {
   Service,
   SocialItem,
   TeamMember,
+  TemplateCard,
 } from "@/types/types";
 import {
   Github,
@@ -151,45 +152,45 @@ export const messages: messageProps[] = [
 export const data: NavData = {
   navMain: [
     {
-      title: "Getting Started",
+      title: "Main Features",
       url: "#",
       items: [
         {
-          title: "Installation",
-          url: "#",
+          title: "Dashboard",
+          url: "/dashboard",
           isActive: true,
         },
         {
-          title: "Project Structure",
-          url: "#",
+          title: "Portfolio Templates",
+          url: "/dashboard/template-choose",
         },
       ],
     },
     {
-      title: "Building Your Application",
+      title: "Advanced Features",
       url: "#",
       items: [
         {
-          title: "Routing",
-          url: "#",
+          title: "Url Shortner",
+          url: "/dashboard",
         },
         {
-          title: "Data Fetching",
-          url: "#",
+          title: "Custom domain",
+          url: "/dashboard",
         },
       ],
     },
     {
-      title: "API Reference",
+      title: "Others",
       url: "#",
       items: [
         {
-          title: "Components",
-          url: "#",
+          title: "Changelog",
+          url: "/dashboard",
         },
         {
-          title: "File Conventions",
-          url: "#",
+          title: "Documentation",
+          url: "/dashboard",
         },
       ],
     },
@@ -351,4 +352,51 @@ export const chartDataPie: PiePropsInterface[] = [
   { browser: "firefox", visitors: 287, fill: "var(--color-firefox)" },
   { browser: "edge", visitors: 173, fill: "var(--color-edge)" },
   { browser: "other", visitors: 190, fill: "var(--color-other)" },
+];
+
+export const templates: TemplateCard[] = [
+  {
+    id: "creative",
+    title: "Creative Portfolio",
+    description:
+      "Perfect for designers and artists with a bold, expressive layout",
+    icon: Globe,
+    demoUrl: "https://creative-portfolio.example.com",
+    bgColor: "bg-fuchsia-500",
+    image:
+      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800&h=400",
+  },
+  {
+    id: "photographer",
+    title: "Photography Portfolio",
+    description:
+      "Showcase your photography with full-width galleries and minimal design",
+    icon: Globe,
+    demoUrl: "https://photo-portfolio.example.com",
+    bgColor: "bg-indigo-500",
+    image:
+      "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&q=80&w=800&h=400",
+  },
+  {
+    id: "developer",
+    title: "Developer Portfolio",
+    description:
+      "Clean and modern layout focusing on projects and technical skills",
+    icon: Globe,
+    demoUrl: "https://dev-portfolio.example.com",
+    bgColor: "bg-emerald-500",
+    image:
+      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=800&h=400",
+  },
+  {
+    id: "professional",
+    title: "Professional Portfolio",
+    description:
+      "Corporate-ready design perfect for executives and consultants",
+    icon: Globe,
+    demoUrl: "https://pro-portfolio.example.com",
+    bgColor: "bg-blue-500",
+    image:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800&h=400",
+  },
 ];
