@@ -29,11 +29,9 @@ export function AppSidebar():React.ReactNode {
 
   const { user } = useUser();
 
-  console.log(user);
-
   return (
     <Sidebar>
-      <SidebarHeader className="lg:mt-5 mt-24">
+      <SidebarHeader className="xl:mt-10 mt-24">
 
         <form>
           <SidebarGroup className="py-0">
@@ -44,7 +42,7 @@ export function AppSidebar():React.ReactNode {
               <SidebarInput
                 id="search"
                 placeholder="Search dashboard..."
-                className="pl-8"
+                className="pl-8 ring-purple-500 border-none focus:border-none focus:outline-none outline-none focus:ring focus:ring-purple-500"
               />
               <Search className="pointer-events-none absolute left-2 top-1/2 size-4 -translate-y-1/2 select-none opacity-50" />
             </SidebarGroupContent>

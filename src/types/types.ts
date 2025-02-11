@@ -138,3 +138,27 @@ export interface UserProps {
   avatar?: string;
   clerkid?: string;
 }
+
+export type Project = {
+  name: string;
+  avatar?: string;
+  thumbnail: string;
+  createdAt: string;
+  branch: string;
+  status: "active" | "inactive" | "archived";
+  metrics: {
+    views: number;
+    uniqueVisitors: number;
+  };
+};
+export interface ChartProps {
+  month: string;
+  desktop: number;
+  mobile: number;
+}
+
+export interface PiePropsInterface {
+  browser: string;
+  visitors: number;
+  fill: string;
+}
