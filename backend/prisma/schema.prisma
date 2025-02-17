@@ -1,0 +1,145 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id String @id @default(cuid())
+  username String
+  email String @unique
+  phone String @unique
+  avatar String? @default("https://placehold.co/400")
+  clerkid String @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  portfolioWeb Portfolios[]
+
+  @@unique([email, phone])
+  @@map("UsersDetails")
+}
+
+model Portfolios {
+  id String  @id @default(cuid())
+  template TemplateProps   
+  name String
+  resume String?
+  description String?
+  education String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  userclerkid String
+  owner User @relation(fields: [userclerkid], references: [clerkid], onDelete: Cascade, onUpdate: Cascade)
+  projects Projects[]
+  experiences Experience[]
+  skills Skills[]
+  testimonials Testimonials[]
+  sociallinks SocialLinks[]
+}
+
+model Projects {
+  id String  @id @default(uuid())
+  title String
+  imageUrl String?
+  demoUrl String?
+  desc String?
+  technologies String[] @default([])
+  type TypeProps
+  status StatusProps?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  portfolioId String
+  Portfoliomap Portfolios @relation(fields: [portfolioId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+}
+
+model Experience {
+  id String @id @default(cuid())
+  companyName String
+  jobType JobType
+  startDate String
+  endDate String  @default("Present")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  portfolioId String
+  portfolio Portfolios @relation(fields: [portfolioId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+}
+
+model Skills {
+  id String @id @default(cuid())
+  name String
+  image String
+  description String?
+  proficiency Int @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  portfolioId String
+  portfolio Portfolios @relation(fields: [portfolioId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+}
+
+model Testimonials {
+  id String @id @default(cuid())
+  name String
+  message String
+  position String?
+  avatar String?
+
+  portfolioId String
+  portfolio Portfolios @relation(fields: [portfolioId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+}
+
+model SocialLinks {
+  id String @id @default(cuid())
+  platform SocialPlatform
+  url String
+
+  portfolioId String
+  portfolio Portfolios @relation(fields: [portfolioId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+}
+
+//names will be decide later
+enum TemplateProps {
+  Template1
+  Template2
+  Template3
+  Template4
+}
+
+enum JobType {
+  FullTime
+  PartTime
+  Hybrid
+  Intern
+}
+
+enum TypeProps {
+  Personal
+  SAAS
+}
+
+enum StatusProps {
+  Active
+  Pending
+  Completed
+}
+
+enum SocialPlatform {
+  GitHub
+  LinkedIn
+  Twitter
+  Instagram
+  Facebook
+}
