@@ -1,5 +1,5 @@
 import { createRoot } from "react-dom/client";
-import "@/css/index.css";
+import "./CSS/index.css";
 import App from "./App.tsx";
 import CustomContext from "./context/custom-context.tsx";
 
