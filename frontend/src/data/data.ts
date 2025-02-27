@@ -1,4 +1,5 @@
 import {
+  ChangelogEntry,
   ChartProps,
   ContactInfo,
   ContactOption,
@@ -186,7 +187,7 @@ export const data: NavData = {
       items: [
         {
           title: "Changelog",
-          url: "/dashboard",
+          url: "/dashboard/change-log",
         },
         {
           title: "Documentation",
@@ -398,5 +399,62 @@ export const templates: TemplateCard[] = [
     bgColor: "bg-blue-500",
     image:
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800&h=400",
+  },
+];
+
+export const changelogData: ChangelogEntry[] = [
+  {
+    version: "2.0.0",
+    date: "May 1, 2025",
+    title: "Major Release",
+    description: "Complete redesign with new architecture and features.",
+    changes: [
+      {
+        type: "breaking",
+        description: "Migrated to React 18 with concurrent features enabled",
+      },
+      {
+        type: "feature",
+        description:
+          "Implemented new component library with improved accessibility",
+      },
+      {
+        type: "feature",
+        description: "Added comprehensive keyboard navigation support",
+      },
+      {
+        type: "improvement",
+        description: "Redesigned dashboard with customizable widgets",
+      },
+      {
+        type: "bugfix",
+        description: "Resolved cross-browser compatibility issues",
+      },
+      {
+        type: "dependency",
+        description: "Updated all dependencies to latest versions",
+      },
+    ],
+  },
+  {
+    version: "1.5.2",
+    date: "March 10, 2025",
+    title: "Maintenance Release",
+    description: "Bug fixes and minor improvements.",
+    changes: [
+      {
+        type: "bugfix",
+        description: "Fixed authentication token refresh mechanism",
+      },
+      {
+        type: "bugfix",
+        description: "Corrected form validation error messages",
+      },
+      {
+        type: "improvement",
+        description: "Optimized image loading with lazy loading",
+      },
+      { type: "dependency", description: "Updated security dependencies" },
+    ],
   },
 ];

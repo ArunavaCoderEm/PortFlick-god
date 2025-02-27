@@ -13,6 +13,7 @@ import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Template1 from "@/template1/template1";
 import DashboardHome from "@/dashboard-pages/dashboard-home";
+import Changelog from "@/dashboard-pages/change-log";
 
 export default function MainRoute(): React.ReactNode {
   const location = useLocation();
@@ -35,6 +36,7 @@ export default function MainRoute(): React.ReactNode {
           <Route path="dashboard" element={<DashboardLayout />}>
             <Route index element={<DashboardHome />} />
             <Route path={"template-choose"} element={<TemplatesChoose />} />
+            <Route path={"change-log"} element={<Changelog />} />
           </Route>
         </Routes>
       </div>

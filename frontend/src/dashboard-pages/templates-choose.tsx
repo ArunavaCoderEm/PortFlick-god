@@ -9,7 +9,7 @@ function TemplateChoose() {
     <div className="min-h-screen ">
       <div className="text-white py-10 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-b from-gray-300 to-gray-500">
             Your Portfolio, Your Story
           </h1>
           <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">

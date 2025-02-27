@@ -172,3 +172,14 @@ export interface TemplateCard {
   bgColor: string;
   image: string;
 }
+
+export interface ChangelogEntry {
+  version: string;
+  date: string;
+  title: string;
+  description: string;
+  changes: {
+    type: "feature" | "improvement" | "bugfix" | "dependency" | "breaking";
+    description: string;
+  }[];
+}
