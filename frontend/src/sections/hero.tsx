@@ -24,6 +24,7 @@ const Hero = (): React.ReactNode => {
     <>
       <div className="py-4 barlow bg-[#000]">
         <div className="mt-20 flex flex-col items-center mx-auto px-4 py-16 relative">
+          <div className="absolute h-48 w-48 left-0 bg-purple-500 rounded-full" />
           <motion.div
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
