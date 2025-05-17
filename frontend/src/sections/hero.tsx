@@ -28,6 +28,18 @@ const Hero = (): React.ReactNode => {
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 1 }}
+            className="absolute h-64 animate-pulse w-44 -left-32 blur-3xl opacity-50 bg-purple-500/40 rounded-full"
+          />
+          <motion.div
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 1 }}
+            className="absolute h-40 w-40 -right-24 animate-pulse top-52 blur-3xl opacity-50 bg-purple-500/40 rounded-full"
+          />
+          <motion.div
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 1 }}
             className="shadow-inner shadow-[#CE84CF] w-52 items-center justify-center flex py-2 rounded-full mb-4"
           >
             <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
@@ -120,7 +132,7 @@ const Hero = (): React.ReactNode => {
                     alt="Showcase"
                     className="myshadow relative z-10 w-full object-cover h-auto rounded-2xl"
                   />
-                   <div className="shadow-overlay absolute inset-0"></div>
+                  <div className="shadow-overlay absolute inset-0"></div>
                 </span>
                 <BorderBeam size={250} duration={12} delay={9} />
               </div>

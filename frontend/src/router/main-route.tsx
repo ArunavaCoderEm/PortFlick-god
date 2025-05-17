@@ -11,7 +11,6 @@ import Services from "@/pages/services";
 import DashboardLayout from "@/utils/dashboard-layout";
 import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import Template1 from "@/template1/template1";
 import DashboardHome from "@/dashboard-pages/dashboard-home";
 import Changelog from "@/dashboard-pages/change-log";
 
@@ -32,7 +31,6 @@ export default function MainRoute(): React.ReactNode {
           <Route path={"/contact"} element={<Contact />} />
           <Route path={"/services"} element={<Services />} />
           <Route path={"/template-choose"} element={<TemplatesChoose />} />
-          <Route path={"/template1"} element={<Template1 />} />
           <Route path="dashboard" element={<DashboardLayout />}>
             <Route index element={<DashboardHome />} />
             <Route path={"template-choose"} element={<TemplatesChoose />} />
