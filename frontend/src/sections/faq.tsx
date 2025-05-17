@@ -33,11 +33,13 @@ export default function Faq(): React.ReactNode {
           ))}
         </Accordion>
         <div className="px-5 barlow py-4 w-full mt-10 rounded-xl">
-          <div className="bg-white rounded-xl px-6 py-4 shadow-lg text-center">
-            <h1 className="text-black text-3xl mt-2 font-bold">
+          <div className="bg-black rounded-xl relative overflow-hidden px-6 py-4 shadow-lg flex items-center justify-center flex-col text-center">
+            <div className="absolute w-28 h-28 bg-purple-500/40 rounded-full -left-10 -bottom-10 blur-2xl" />
+            <div className="absolute w-28 h-28 bg-purple-500/40 rounded-full -right-10 -top-10 blur-2xl" />
+            <h1 className="text-white text-3xl mt-2 font-bold">
               Wanna Get Started ?
             </h1>
-            <p className="text-gray-700 text-md font-normal mt-4">
+            <p className="text-neutral-400 max-w-4xl text-center text-md font-normal mt-4">
               Join us today and take the first step towards an amazing
               experience. Whether you're here to learn, grow, or connect, we've
               got everything you need to succeed. Sign up now and unlock

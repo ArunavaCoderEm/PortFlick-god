@@ -24,7 +24,18 @@ const Hero = (): React.ReactNode => {
     <>
       <div className="py-4 barlow bg-[#000]">
         <div className="mt-20 flex flex-col items-center mx-auto px-4 py-16 relative">
-          <div className="absolute h-48 w-48 left-0 bg-purple-500 rounded-full" />
+          <motion.div
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 1 }}
+            className="absolute h-64 animate-pulse w-44 -left-32 blur-3xl opacity-50 bg-purple-500/40 rounded-full"
+          />
+          <motion.div
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 1 }}
+            className="absolute h-40 w-40 -right-24 animate-pulse top-52 blur-3xl opacity-50 bg-purple-500/40 rounded-full"
+          />
           <motion.div
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -121,7 +132,7 @@ const Hero = (): React.ReactNode => {
                     alt="Showcase"
                     className="myshadow relative z-10 w-full object-cover h-auto rounded-2xl"
                   />
-                   <div className="shadow-overlay absolute inset-0"></div>
+                  <div className="shadow-overlay absolute inset-0"></div>
                 </span>
                 <BorderBeam size={250} duration={12} delay={9} />
               </div>
