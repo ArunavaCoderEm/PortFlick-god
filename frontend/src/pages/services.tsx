@@ -21,7 +21,7 @@ export default function Services(): React.ReactNode {
           {services.map((service, index) => (
             <MagicCard
               className="cursor-pointer items-start justify-center whitespace-normal shadow-2xl flex p-6 flex-col w-full h-full"
-              gradientColor={"#262626"}
+              gradientColor={"#000"}
               key={index}
             >
               <div className="mb-6">

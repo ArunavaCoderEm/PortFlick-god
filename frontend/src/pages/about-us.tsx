@@ -12,7 +12,7 @@ export default function AboutUs(): React.ReactNode {
             from a wide range of backgrounds
           </h1>
           <p className="text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
-            Our philosophy is simple: hire great people and give them the
+            Our philosophy is simple: Hire great people and give them the
             resources and support to do their best work.
           </p>
         </div>
