@@ -83,9 +83,11 @@ export default function ContactUs(): React.ReactNode {
 
             <button
               type="submit"
-              className="w-full bg-purple-500 text-white py-3 px-6 rounded-lg font-medium hover:bg-purple-600 transition"
+              className="w-full relative overflow-hidden bg-gradient-to-b from-neutral-800/60 to-black/90 text-white py-3 px-6 rounded-lg font-medium hover:opacity-80 transition duration-200"
             >
-              Let's get started!
+              <div className="absolute h-10 w-12 bg-purple-500/50 blur-md animate-pulse -left-3 rounded-full -top-3" />
+              <div className="absolute h-10 w-12 bg-purple-500/50 blur-md animate-pulse -right-3 rounded-full -bottom-3" />
+              Contact the team!
             </button>
           </form>
         </div>

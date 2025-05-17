@@ -74,7 +74,7 @@ export function AppSidebar():React.ReactNode {
         </div>
         <div className="flex col-span-8 flex-col text-sm">
           <span className="font-medium">{user?.fullName || "Guest"}</span>
-          <span className="text-gray-500">
+          <span className="text-neutral-400 tracking-tight">
             {user?.emailAddresses[0]?.emailAddress || "No email"}
           </span>
         </div>

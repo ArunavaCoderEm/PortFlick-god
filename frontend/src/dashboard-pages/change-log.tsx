@@ -56,7 +56,7 @@ export default function Changelog(): React.ReactNode {
         </p>
       </header>
 
-      <div className="space-y-12">
+      <div className="space-y-12 overflow-y-auto border py-4 px-2 border-purple-500/30 rounded-lg h-96">
         {changelogData.map((release, index) => (
           <div key={release.version} className="relative">
             {index !== changelogData.length && (
