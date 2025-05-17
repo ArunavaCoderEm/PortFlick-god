@@ -116,25 +116,34 @@ const Hero = (): React.ReactNode => {
                 onClick={handleGetStarted}
                 className="flex items-center hover:scale-95 transition-all duration-200 relative overflow-hidden gap-2 bg-white text-black px-8 py-3 rounded-lg font-bold"
               >
-                <div className="absolute h-7 rounded-full w-full left-0 -top-4 blur-lg -z-1 bg-purple-500" />
                 <UserCircle className="text-black w-6" />
                 {isSignedIn ? "Dashboard" : "Sign In"}
               </button>
-              <button className="border-[1px] border-white/50 px-8 py-3 text-white font-bold rounded-lg hover:scale-95 flex items-center gap-2 transition-all duration-200">
+              <button className="border-[1px] border-white/50 px-8 py-3 text-white font-bold rounded-lg hover:scale-95 flex items-center gap-2 transition-all duration-200 relative overflow-hidden">
+                <div className="absolute h-7 rounded-full w-full left-0 -top-4 blur-lg -z-1 bg-purple-500" />
                 <Book className="w-6" />
                 Docs
               </button>
             </motion.div>
             <div className="relative mt-4 md:mt-5 flex flex-col items-center justify-center w-full px-4 py-8">
+              <div className="w-full h-20 bg-purple-500/50 absolute top-5 rounded-xl blur-3xl" />
               <div className="relative md:h-[400px] h-auto w-full md:w-[90%] flex-col items-center justify-center overflow-hidden rounded-lg">
-                <span className="myrelative pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
-                  <img
-                    src="/images/pic.webp"
-                    alt="Showcase"
-                    className="myshadow relative z-10 w-full object-cover h-auto rounded-2xl"
-                  />
-                  <div className="shadow-overlay absolute inset-0"></div>
-                </span>
+                <img
+                  src="/images/pic.webp"
+                  alt="Showcase"
+                  className="relative z-10 w-full object-cover h-full rounded-2xl"
+                  style={{
+                    WebkitMaskImage:
+                      "linear-gradient(to top, black 0%, transparent 100%)",
+                    maskImage:
+                      "linear-gradient(to bottom, black 0%, transparent 100%)",
+                    WebkitMaskSize: "100% 100%",
+                    maskSize: "100% 100%",
+                    WebkitMaskRepeat: "no-repeat",
+                    maskRepeat: "no-repeat",
+                  }}
+                />
+
                 <BorderBeam size={250} duration={12} delay={9} />
               </div>
             </div>
