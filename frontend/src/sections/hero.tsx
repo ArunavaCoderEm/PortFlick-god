@@ -23,7 +23,7 @@ const Hero = (): React.ReactNode => {
   return (
     <>
       <div className="py-4 barlow bg-[#000]">
-        <div className="mt-20 flex flex-col items-center mx-auto px-4 py-16 relative">
+        <div className="mt-20 flex flex-col items-center mx-auto px-4 py-16 relative overflow-x-hidden">
           <motion.div
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -63,7 +63,7 @@ const Hero = (): React.ReactNode => {
                 >
                   <Code2 className="w-12 h-12 text-[#CE84CF]" />
                 </motion.div>
-                <span className="flex lg:flex-row flex-col items-center justify-center">
+                <span className="flex lg:flex-row bg-clip-text text-transparent bg-gradient-to-r from-violet-500/50 via-violet-500/30 to-white flex-col items-center justify-center">
                   Craft Your Dream <SparklesText text={"\u00A0Portfolio"} />
                 </span>
 
@@ -99,7 +99,7 @@ const Hero = (): React.ReactNode => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.8, duration: 1 }}
-              className="text-xl text-gray-400 max-w-2xl mt-5 mx-auto mb-8"
+              className="text-xl text-neutral-400 max-w-2xl mt-5 mx-auto mb-8"
             >
               Create a stunning portfolio in minutes with our easy-to-use
               templates. No coding required – fill form, drag image, and
@@ -114,12 +114,13 @@ const Hero = (): React.ReactNode => {
             >
               <button
                 onClick={handleGetStarted}
-                className="bg-gradient-to-b from-[#CE84CF] to-violet-500 text-white px-8 py-3 rounded-lg font-bold flex gap-2 items-center hover:opacity-90 transition-all duration-200"
+                className="flex items-center hover:scale-95 transition-all duration-200 relative overflow-hidden gap-2 bg-white text-black px-8 py-3 rounded-lg font-bold"
               >
-                <UserCircle className="text-white w-6" />
+                <div className="absolute h-7 rounded-full w-full left-0 -top-4 blur-lg -z-1 bg-purple-500" />
+                <UserCircle className="text-black w-6" />
                 {isSignedIn ? "Dashboard" : "Sign In"}
               </button>
-              <button className="border-[1px] border-white px-8 py-3 text-white font-bold rounded-lg hover:scale-95 flex items-center gap-2 transition-all duration-200">
+              <button className="border-[1px] border-white/50 px-8 py-3 text-white font-bold rounded-lg hover:scale-95 flex items-center gap-2 transition-all duration-200">
                 <Book className="w-6" />
                 Docs
               </button>
