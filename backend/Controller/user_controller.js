@@ -59,7 +59,7 @@ exports.getUser = async (req, res) => {
   try {
     const user = await prismaCLpostDB.user.findFirst({
       where: { clerkid: id },
-      include: { portfolioWeb: true },
+      include: { userPortfolios: true },
     });
 
     if (!user) {
