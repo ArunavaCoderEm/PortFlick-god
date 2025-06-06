@@ -35,7 +35,7 @@ model User {
 model Portfolios {
   id          String   @id @default(cuid())
   templateId  String
-  template    Template @relation(fields: [templateId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  template    Template @relation(fields: [templateId], references: [templateId], onDelete: Restrict, onUpdate: Cascade)
   name        String
   resume      String?
   description String?
@@ -118,17 +118,10 @@ model SocialLinks {
   portfolio   Portfolios @relation(fields: [portfolioId], references: [id], onDelete: Cascade, onUpdate: Cascade)
 }
 
-//names will be decide later
-// enum TemplateProps {
-//   Template1
-//   Template2
-//   Template3
-//   Template4
-// }
-
 model Template {
   id             String         @id @default(cuid())
   name           String         @unique
+  templateId     String         @unique
   previewUrl     String?
   portfolioStyle PortfolioStyle
   isActive       Boolean        @default(true)

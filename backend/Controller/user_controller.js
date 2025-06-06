@@ -21,6 +21,8 @@ const getUserSchema = z.object({
   id: z.string().min(3, "Username too small").max(20, "Username too large"),
 });
 
+
+
 const deleteUserSchema = z.object({
   id: z.string().min(3, "Username too small").max(20, "Username too large"),
 });
@@ -39,7 +41,7 @@ exports.createUser = async (req, res) => {
 
   try {
     const userExists = await prismaCLpostDB.user.findUnique({
-      where: { clerkid },
+      where: { username },
     });
 
     if (userExists) {
@@ -103,7 +105,7 @@ exports.getUser = async (req, res) => {
 
   try {
     const user = await prismaCLpostDB.user.findFirst({
-      where: { clerkid: id },
+      where: { username: id },
       include: { userPortfolios: true },
     });
 
@@ -118,29 +120,54 @@ exports.getUser = async (req, res) => {
   }
 };
 
-// Delete User
-exports.deleteUser = async (req, res) => {
+// Get All Users
+exports.fetchAllUsers = async (req, res) => {
 
-  const parseResult = deleteUserSchema.safeParse(req.params);
-  if (!parseResult.success) {
-    return res.status(400).json({ errors: parseResult.error.issues.map(i => i.message) });
-  }
-  const { id } = req.params;
+  const { adminCode } = req.body;
 
   try {
-    const userExists = await prismaCLpostDB.user.findUnique({
-      where: { clerkid: id },
+    const admin = await prismaCLpostDB.admin.findUnique({
+      where: { adminCode },
     });
 
-    if (!userExists) {
-      return res.status(400).json({ message: "No User Found" });
+    if (!admin) {
+      return res.status(403).json({ message: "Invalid Admin Code" });
     }
 
-    await prismaCLpostDB.user.delete({ where: { clerkid: id } });
+    const users = await prismaCLpostDB.user.findMany({
+    });
 
-    res.status(200).json({ message: "User Deleted" });
+    res.status(200).json({ message: "Users Fetched", users });
   } catch (e) {
     console.error(e);
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
+
+// Delete User
+// exports.deleteUser = async (req, res) => {
+
+//   const parseResult = deleteUserSchema.safeParse(req.params);
+//   if (!parseResult.success) {
+//     return res.status(400).json({ errors: parseResult.error.issues.map(i => i.message) });
+//   }
+//   const { id } = req.params;
+
+//   try {
+//     const userExists = await prismaCLpostDB.user.findUnique({
+//       where: { clerkid: id },
+//     });
+
+//     if (!userExists) {
+//       return res.status(400).json({ message: "No User Found" });
+//     }
+
+//     await prismaCLpostDB.user.delete({ where: { clerkid: id } });
+
+//     res.status(200).json({ message: "User Deleted" });
+//   } catch (e) {
+//     console.error(e);
+//     res.status(500).json({ message: "Internal Server Error" });
+//   }
+// };

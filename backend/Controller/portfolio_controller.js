@@ -4,7 +4,7 @@ const prismaCLpostDB = require("../Connections/prisma.connect");
 exports.createPortfolio = async (req, res) => {
   const { userclerkid } = req.params;
 
-  const { name, description, resume, template } = req.body;
+  const { name, description, resume, templateId } = req.body;
 
   try {
     const userExists = await prismaCLpostDB.user.findUnique({
@@ -12,23 +12,29 @@ exports.createPortfolio = async (req, res) => {
         clerkid: userclerkid,
       },
     });
-
     if (!userExists) {
       res.status(400).json({ message: "No User There" });
-    } else {
-      const portFolio = await prismaCLpostDB.portfolios.create({
-        data: {
-          name,
-          resume,
-          description,
-          userclerkid,
-          template,
-        },
-      });
-      res
-        .status(200)
-        .json({ message: "Portfolio Created", Portfolio: portFolio });
     }
+
+    const templateExists = await prismaCLpostDB.template.findUnique({
+      where: { id: templateId },
+    });
+    if (!templateExists) {
+      return res.status(400).json({ message: "Invalid Template ID" });
+    }
+
+    const portFolio = await prismaCLpostDB.portfolios.create({
+      data: {
+        name,
+        resume,
+        description,
+        userclerkid,
+        templateId,
+      },
+    });
+    res
+      .status(200)
+      .json({ message: "Portfolio Created", Portfolio: portFolio });
   } catch (e) {
     console.log(e);
     res.status(500);
@@ -107,7 +113,7 @@ exports.addSkill = async (req, res) => {
   const { name, image, description, proficiency } = req.body;
 
   try {
-    const portfolioExists = await prismaCLpostDB.portfolio.findUnique({
+    const portfolioExists = await prismaCLpostDB.portfolios.findUnique({
       where: { id: portfolioId },
     });
 
@@ -121,7 +127,7 @@ exports.addSkill = async (req, res) => {
         .json({ message: "Enter proficiency between 0 and 100" });
     }
 
-    const skill = await prismaCLpostDB.skill.create({
+    const skill = await prismaCLpostDB.skills.create({
       data: {
         name,
         image,

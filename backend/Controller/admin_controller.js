@@ -9,11 +9,13 @@ const adminSchema = z.object({
   code: z.literal("PORTFLICK-ADMIN"),
 });
 
+
 function generateAdminCode() {
   const randomNumber = Math.floor(1000 + Math.random() * 9000);
   return `PORT-FLICK${randomNumber}`;
 }
 
+// create admin
 exports.createAdmin = async (req, res) => {
   const parseResult = adminSchema.safeParse(req.body);
 
@@ -58,3 +60,5 @@ exports.createAdmin = async (req, res) => {
     return res.status(500).json({ error: "Server error" });
   }
 };
+
+
