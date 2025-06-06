@@ -6,16 +6,18 @@ const {
   addSkill,
   addTestimonial,
   addSocialLink,
+  getPortfolioById
 } = require("../Controller/portfolio_controller");
 
 const router = express.Router();
 
 router
-  .post("/create/:userclerkid", createPortfolio)
-  .post("/addProject/:portfolioId", addProject)
-  .post("/addExperience/:portfolioId", addExperience)
-  .post("/addSkill/:portfolioId", addSkill)
-  .post("/addTestimonial/:portfolioId", addTestimonial)
-  .post("/addSocialLink/:portfolioId", addSocialLink);
+  .post("/create-portfolio", createPortfolio)
+  .get('/get-portfolio/:portfolioId', getPortfolioById)
+  .post("/add-project", addProject)
+  .post("/add-experience", addExperience)
+  .post("/add-skill", addSkill)
+  .post("/add-testimonial", addTestimonial)
+  .post("/add-social", addSocialLink);
 
 module.exports = router;

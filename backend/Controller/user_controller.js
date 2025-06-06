@@ -22,12 +22,6 @@ const getUserSchema = z.object({
 });
 
 
-
-const deleteUserSchema = z.object({
-  id: z.string().min(3, "Username too small").max(20, "Username too large"),
-});
-
-
 // Create User
 exports.createUser = async (req, res) => {
   const parseResult = createUserSchema.safeParse(req.body);

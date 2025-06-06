@@ -34,6 +34,7 @@ model User {
 
 model Portfolios {
   id          String   @id @default(cuid())
+  portfolioId String   @unique
   templateId  String
   template    Template @relation(fields: [templateId], references: [templateId], onDelete: Restrict, onUpdate: Cascade)
   name        String
@@ -44,8 +45,8 @@ model Portfolios {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  userclerkid  String
-  owner        User           @relation(fields: [userclerkid], references: [clerkid], onDelete: Cascade, onUpdate: Cascade)
+  username     String
+  owner        User           @relation(fields: [username], references: [username], onDelete: Cascade, onUpdate: Cascade)
   projects     Projects[]
   experiences  Experience[]
   skills       Skills[]
@@ -55,6 +56,7 @@ model Portfolios {
 
 model Projects {
   id           String       @id @default(uuid())
+  projectId    String       @unique
   title        String
   imageUrl     String?
   demoUrl      String?
@@ -67,25 +69,27 @@ model Projects {
   updatedAt DateTime @updatedAt
 
   portfolioId  String
-  Portfoliomap Portfolios @relation(fields: [portfolioId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  Portfoliomap Portfolios @relation(fields: [portfolioId], references: [portfolioId], onDelete: Cascade, onUpdate: Cascade)
 }
 
 model Experience {
-  id          String  @id @default(cuid())
-  companyName String
-  jobType     JobType
-  startDate   String
-  endDate     String  @default("Present")
+  id           String  @id @default(cuid())
+  experienceId String  @unique
+  companyName  String
+  jobType      JobType
+  startDate    String
+  endDate      String  @default("Present")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   portfolioId String
-  portfolio   Portfolios @relation(fields: [portfolioId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  portfolio   Portfolios @relation(fields: [portfolioId], references: [portfolioId], onDelete: Cascade, onUpdate: Cascade)
 }
 
 model Skills {
   id          String  @id @default(cuid())
+  skillId     String  @unique
   name        String
   image       String
   description String?
@@ -95,27 +99,29 @@ model Skills {
   updatedAt DateTime @updatedAt
 
   portfolioId String
-  portfolio   Portfolios @relation(fields: [portfolioId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  portfolio   Portfolios @relation(fields: [portfolioId], references: [portfolioId], onDelete: Cascade, onUpdate: Cascade)
 }
 
 model Testimonials {
-  id       String  @id @default(cuid())
-  name     String
-  message  String
-  position String?
-  avatar   String?
+  id            String  @id @default(cuid())
+  testimonialId String  @unique
+  name          String
+  message       String
+  position      String?
+  avatar        String?
 
   portfolioId String
-  portfolio   Portfolios @relation(fields: [portfolioId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  portfolio   Portfolios @relation(fields: [portfolioId], references: [portfolioId], onDelete: Cascade, onUpdate: Cascade)
 }
 
 model SocialLinks {
   id       String         @id @default(cuid())
+  socialId String         @unique
   platform SocialPlatform
   url      String
 
   portfolioId String
-  portfolio   Portfolios @relation(fields: [portfolioId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  portfolio   Portfolios @relation(fields: [portfolioId], references: [portfolioId], onDelete: Cascade, onUpdate: Cascade)
 }
 
 model Template {
