@@ -1,8 +1,40 @@
 const route = require("express").Router();
 const prismaCLpostDB = require("../Connections/prisma.connect");
+const { z } = require("zod");
+
+const createUserSchema = z.object({
+  email: z.string().email("Invalid email format"),
+  phone: z.string().regex(/^\d{10}$/, "Invalid phone number"),
+  username: z.string().min(3, "Username too small").max(20, "Username too large"),
+  clerkid: z.string().min(1, "Clerk ID is required"),
+  avatar: z.string().url().optional(),
+});
+
+const updateUserSchema = z.object({
+  email: z.string().email("Invalid email format"),
+  phone: z.string().regex(/^\d{10}$/, "Invalid phone number"),
+  username: z.string().min(3, "Username too small").max(20, "Username too large"),
+  avatar: z.string().url().optional(),
+});
+
+const getUserSchema = z.object({
+  id: z.string().min(3, "Username too small").max(20, "Username too large"),
+});
+
+const deleteUserSchema = z.object({
+  id: z.string().min(3, "Username too small").max(20, "Username too large"),
+});
+
 
 // Create User
 exports.createUser = async (req, res) => {
+  const parseResult = createUserSchema.safeParse(req.body);
+
+  if (!parseResult.success) {
+    return res.status(400).json({
+      error: parseResult.error.issues.map((issue) => issue.message),
+    });
+  }
   const { email, phone, username, clerkid, avatar } = req.body;
 
   try {
@@ -28,11 +60,18 @@ exports.createUser = async (req, res) => {
 
 // Update User
 exports.updateUser = async (req, res) => {
-  const { email, phone, clerkid, avatar } = req.body;
+
+  const parseResult = updateUserSchema.safeParse(req.body);
+
+  if (!parseResult.success) {
+    return res.status(400).json({ errors: parseResult.error.issues.map(i => i.message) });
+  }
+
+  const { username, email, phone, avatar } = req.body;
 
   try {
     const userExists = await prismaCLpostDB.user.findUnique({
-      where: { clerkid },
+      where: { username },
     });
 
     if (!userExists) {
@@ -40,7 +79,7 @@ exports.updateUser = async (req, res) => {
     }
 
     const updatedUser = await prismaCLpostDB.user.update({
-      where: { clerkid },
+      where: { username },
       data: { email, phone, avatar },
       select: { email: true, phone: true },
     });
@@ -54,6 +93,12 @@ exports.updateUser = async (req, res) => {
 
 // Get User
 exports.getUser = async (req, res) => {
+
+  const parseResult = getUserSchema.safeParse(req.params);
+  if (!parseResult.success) {
+    return res.status(400).json({ errors: parseResult.error.issues.map(i => i.message) });
+  }
+
   const { id } = req.params;
 
   try {
@@ -75,6 +120,11 @@ exports.getUser = async (req, res) => {
 
 // Delete User
 exports.deleteUser = async (req, res) => {
+
+  const parseResult = deleteUserSchema.safeParse(req.params);
+  if (!parseResult.success) {
+    return res.status(400).json({ errors: parseResult.error.issues.map(i => i.message) });
+  }
   const { id } = req.params;
 
   try {
