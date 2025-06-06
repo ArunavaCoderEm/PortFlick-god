@@ -56,3 +56,49 @@ exports.createTemplate = async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
+
+exports.updateTemplate = async (req, res) => {
+  const parseResult = createTemplateSchema.safeParse(req.body);
+  if (!parseResult.success) {
+    return res.status(400).json({
+      errors: parseResult.error.issues.map((i) => i.message),
+    });
+  }
+
+  const { templateId, name, previewUrl, portfolioStyle, adminCode } = req.body;
+
+  try {
+    const isAdmin = await prismaCLpostDB.admin.findUnique({
+      where: { adminCode },
+    });
+    if(!isAdmin) {
+      return res.status(403).json({ message: "Invalid Admin Code" });
+    }
+
+    const existing = await prismaCLpostDB.template.findUnique({
+      where: { templateId },
+    });
+    if(!existing) {
+      return res.status(409).json({ message: "Template not found" });
+    }
+
+    const updated = await prismaCLpostDB.template.update({
+        where:{templateId},
+        data: {
+            templateId,
+            name,
+            previewUrl,
+            portfolioStyle,
+        },
+    });
+
+    //no id returned(trying out)
+    const { id, ...templateUpdated } = updated;
+
+    res.status(201).json({ message: "Template Updated", templateUpdated });
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
