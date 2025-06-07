@@ -17,12 +17,13 @@ model Admin {
 }
 
 model User {
-  id       String  @id @default(cuid())
-  username String  @unique
-  email    String  @unique
-  phone    String  @unique
-  avatar   String? @default("https://placehold.co/400")
-  clerkid  String  @unique
+  id                String   @id @default(cuid())
+  username          String   @unique
+  email             String   @unique
+  phone             String   @unique
+  avatar            String?  @default("https://placehold.co/400")
+  clerkid           String   @unique
+  createdPortfolios String[] @default([])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -33,14 +34,15 @@ model User {
 }
 
 model Portfolios {
-  id          String   @id @default(cuid())
-  portfolioId String   @unique
-  templateId  String
-  template    Template @relation(fields: [templateId], references: [templateId], onDelete: Restrict, onUpdate: Cascade)
-  name        String
-  resume      String?
-  description String?
-  education   String?
+  id             String   @id @default(cuid())
+  portfolioId    String   @unique
+  templateId     String
+  template       Template @relation(fields: [templateId], references: [templateId], onDelete: Restrict, onUpdate: Cascade)
+  name           String
+  resume         String?
+  description    String?
+  education      String?
+  displayPicture String?  @default("https://placehold.co/400")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

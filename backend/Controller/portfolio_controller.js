@@ -8,6 +8,7 @@ const createPortfolioSchema = z.object({
     .min(3, "Template ID too small")
     .max(20, "Template ID too large"),
   resume: z.string().optional(),
+  displayPicture: z.string().url().optional(),
   description: z.string().optional(),
   education: z.string().optional(),
   portfolioId: z
@@ -93,6 +94,7 @@ exports.createPortfolio = async (req, res) => {
     name,
     description,
     resume,
+    displayPicture,
     templateId,
     username,
     education,
@@ -103,10 +105,11 @@ exports.createPortfolio = async (req, res) => {
     const userExists = await prismaCLpostDB.user.findUnique({
       where: {
         username: username,
+
       },
     });
     if (!userExists) {
-      res.status(400).json({ message: "No User There" });
+      return res.status(400).json({ message: "No User There" });
     }
 
     const existing = await prismaCLpostDB.portfolios.findUnique({
@@ -114,6 +117,14 @@ exports.createPortfolio = async (req, res) => {
     });
     if (existing) {
       return res.status(409).json({ message: "Portfololio ID already exists" });
+    }
+
+    const portfolioCount = await prismaCLpostDB.portfolios.count({
+      where: { username },
+    });
+
+    if (portfolioCount >= 3) {
+      return res.status(400).json({ message: "Only 3 portfolios allowed in free tier" });
     }
 
     const templateExists = await prismaCLpostDB.template.findUnique({
@@ -127,6 +138,7 @@ exports.createPortfolio = async (req, res) => {
       data: {
         name,
         resume,
+        displayPicture,
         description,
         username,
         templateId,
@@ -134,6 +146,15 @@ exports.createPortfolio = async (req, res) => {
         portfolioId,
       },
     });
+
+    await prismaCLpostDB.user.update({
+      where: { username },
+      data: {
+        createdPortfolios: {
+          push: portfolioId
+        }
+      }
+    })
     res
       .status(200)
       .json({ message: "Portfolio Created", Portfolio: portFolio });
