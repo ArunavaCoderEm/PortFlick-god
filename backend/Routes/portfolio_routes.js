@@ -6,25 +6,30 @@ const {
 } = require("../Controller/portfolio_controller");
 
 const {
-  addProject
+  addProject,
+  updateProject
 } = require("../Controller/project_controller");
 
 const {
-  addSkill
+  addSkill,
+  updateSkill
 } = require("../Controller/skill_controller");
 
 const {
-  addExperience
+  addExperience,
+  updateExperience
 } = require("../Controller/experience_controller");
 
 
 const {
-  addTestimonial
+  addTestimonial,
+  updateTestimonial
 } = require("../Controller/testimonial_controller");
 
 
 const {
-  addSocialLink
+  addSocialLink,
+  updateSocialLink
 } = require("../Controller/sociallink_controller");
 
 
@@ -32,13 +37,18 @@ const router = express.Router();
 
 router
   .post("/create", createPortfolio)
-  .get('/get-portfolio/:portfolioId', getPortfolioById)
   .put("/update", updatePortfolio)
+  .get('/get-portfolio/:portfolioId', getPortfolioById)
   .post("/add-project", addProject)
+  .put("/update-project", updateProject)
   .post("/add-experience", addExperience)
+  .put("/update-experience", updateExperience)
   .post("/add-skill", addSkill)
+  .put("/update-skill", updateSkill)
   .post("/add-testimonial", addTestimonial)
-  .post("/add-social", addSocialLink);
+  .put("/update-testimonial", updateTestimonial)
+  .post("/add-social", addSocialLink)
+  .put("/update-social", updateSocialLink)
 
   
 module.exports = router;
