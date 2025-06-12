@@ -11,8 +11,8 @@ const createUserSchema = z.object({
 });
 
 const updateUserSchema = z.object({
-  email: z.string().email("Invalid email format"),
-  phone: z.string().regex(/^\d{10}$/, "Invalid phone number"),
+  email: z.string().email("Invalid email format").optional(),
+  phone: z.string().regex(/^\d{10}$/, "Invalid phone number").optional(),
   username: z.string().min(3, "Username too small").max(20, "Username too large"),
   avatar: z.string().url().optional(),
 });
