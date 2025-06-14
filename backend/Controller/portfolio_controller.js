@@ -188,18 +188,20 @@ exports.updatePortfolio = async (req, res) => {
 };
 
 //top portfolios
-exports.getTopPortfolios =async(req,res)=>{
-  try{
-    const topPortfolios=await prismaCLpostDB.portfolios.findMany({
-      take:5,
-      orderBy:{
-        viewCount:'desc'
-      }
+exports.getTopPortfolios = async (req, res) => {
+  try {
+    const topPortfolios = await prismaCLpostDB.portfolios.findMany({
+      take: 5,
+      orderBy: {
+        viewCount: "desc",
+      },
     });
+    if (topPortfolios.length === 0) {
+      return res.status(404).json({ message: "No portfolios found" });
+    }
     res.status(200).json({ portfolios: topPortfolios });
-  }
-  catch(e){
-        console.error(e);
+  } catch (e) {
+    console.error(e);
     res.status(500).json({ message: "Failed to fetch top portfolios" });
   }
-}
+};
