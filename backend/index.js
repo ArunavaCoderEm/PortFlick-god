@@ -8,7 +8,7 @@ const templateRouter = require("./Routes/template_routes");
 
 require("dotenv/config");
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8000;
 
 server.use(cors());
 server.use(express.json());
