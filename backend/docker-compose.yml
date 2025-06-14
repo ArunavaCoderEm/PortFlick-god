@@ -1,22 +1,21 @@
 version: '3.8'
 
 services:
-  backend:
+  portflick-backend:
     build: .
-    container_name: portflick-backend
+    image: portflick-backend:v1   
     ports:
       - "${PORT}:${PORT}"
     env_file:
       - .env
     depends_on:
-      - redis
+      - portflick-redis
     volumes:
       - .:/app
     restart: always
 
-  redis:
+  portflick-redis:
     image: redis:alpine
-    container_name: portflick-redis
     ports:
       - "${REDIS_PORT}:${REDIS_PORT}"
     restart: always
