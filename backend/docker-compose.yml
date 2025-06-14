@@ -3,7 +3,7 @@ version: '3.8'
 services:
   backend:
     build: .
-    container_name: node-backend
+    container_name: portflick-backend
     ports:
       - "${PORT}:${PORT}"
     env_file:
@@ -16,7 +16,7 @@ services:
 
   redis:
     image: redis:alpine
-    container_name: redis-server
+    container_name: portflick-redis
     ports:
       - "${REDIS_PORT}:${REDIS_PORT}"
     restart: always
