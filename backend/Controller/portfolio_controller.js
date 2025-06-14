@@ -119,6 +119,14 @@ exports.getPortfolioById = async (req, res) => {
   const { portfolioId } = req.params;
 
   try {
+    await prismaCLpostDB.portfolios.update({
+      where: { portfolioId },
+      data: {
+        viewCount: {
+          increment: 1,
+        },
+      },
+    });
     const portfolio = await prismaCLpostDB.portfolios.findUnique({
       where: { portfolioId },
       include: {
@@ -144,21 +152,14 @@ exports.getPortfolioById = async (req, res) => {
 //update Portfolio
 
 exports.updatePortfolio = async (req, res) => {
-
   const parseResult = updatePortfolioSchema.safeParse(req.body);
   if (!parseResult.success) {
     return res.status(400).json({
       error: parseResult.error.issues.map((issue) => issue.message),
     });
   }
-  const {
-    name,
-    description,
-    resume,
-    displayPicture,
-    education,
-    portfolioId,
-  } = req.body;
+  const { name, description, resume, displayPicture, education, portfolioId } =
+    req.body;
 
   try {
     const existing = await prismaCLpostDB.portfolios.findUnique({
@@ -179,10 +180,26 @@ exports.updatePortfolio = async (req, res) => {
       },
     });
 
-
     res.status(201).json({ message: "Portfolio Updated", updatedPortfolio });
   } catch (e) {
     console.error(e);
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
+//top portfolios
+exports.getTopPortfolios =async(req,res)=>{
+  try{
+    const topPortfolios=await prismaCLpostDB.portfolios.findMany({
+      take:5,
+      orderBy:{
+        viewCount:'desc'
+      }
+    });
+    res.status(200).json({ portfolios: topPortfolios });
+  }
+  catch(e){
+        console.error(e);
+    res.status(500).json({ message: "Failed to fetch top portfolios" });
+  }
+}

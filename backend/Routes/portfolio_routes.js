@@ -2,7 +2,8 @@ const express = require("express");
 const {
   createPortfolio,
   getPortfolioById,
-  updatePortfolio
+  updatePortfolio,
+  getTopPortfolios
 } = require("../Controller/portfolio_controller");
 
 const {
@@ -39,6 +40,7 @@ router
   .post("/create", createPortfolio)
   .put("/update", updatePortfolio)
   .get('/get-portfolio/:portfolioId', getPortfolioById)
+  .get('/top-portfolios', getTopPortfolios)
   .post("/add-project", addProject)
   .put("/update-project", updateProject)
   .post("/add-experience", addExperience)
