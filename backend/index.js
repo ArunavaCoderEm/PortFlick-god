@@ -7,6 +7,7 @@ const adminRouter = require("./Routes/admin_routes");
 const templateRouter = require("./Routes/template_routes");
 
 require("dotenv/config");
+
 const PORT = process.env.PORT;
 
 server.use(cors());
